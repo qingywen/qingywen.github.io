@@ -1,0 +1,55 @@
+.container {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.box1 {
+	width: 150px;
+	height: 120px;
+}
+
+.box2 {
+	width: 150px;
+	height: 100px;
+}
+
+.box3 {
+	width: 150px;
+	height: 40px;
+}
+
+.box4 {
+	width: 150px;
+	height: 200px;
+}
+
+.box1,
+.box2,
+.box3,
+.box4 {
+	padding: 20px;
+	margin:20px;
+}
+
+.box1,
+.box2,
+.box3 {
+	border: 1px solid #f00;
+}
+
+.box4 {
+	border: 1px solid #0f0;
+}
+
+@media(max-width:640px) {
+	.container {
+		flex-wrap: wrap;
+		align-items: flex-start;
+	}
+
+	.box4 {
+		order: -1;
+	}
+
+}

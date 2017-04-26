@@ -1,0 +1,146 @@
+* {
+	padding: 0;
+	margin: 0;
+}
+
+a {
+	text-decoration: none;
+	color: inherit;
+}
+
+.header-top {
+	height: 50px;
+	background: #00b4da;
+	color: #fff;
+	font: normal 16px "Semihei";
+	letter-spacing: 1px;
+
+}
+
+.top-left {
+	float: left;
+	line-height: 50px;
+	display: block;
+	margin-left: 10px;
+	padding-left: 15px;
+	position: relative;
+}
+
+.top-title {
+	text-align: center;
+	font: normal 1.3em/50px "Semihei";
+	line-height: 50px;
+	box-sizing: border-box;
+	text-indent: -60px;
+}
+
+.top-left:before {
+	content: "";
+	display: block;
+	position: absolute;
+	width: 10px;
+	height: 10px;
+	border-left: 3px solid #fff;
+	border-bottom: 3px solid #fff;
+	transform: rotate(45deg);
+	left: 0;
+	top: 50%;
+	margin-top: -7px;
+}
+
+.container {
+	width: 100%;
+	position: relative;
+}
+
+.box {
+	width: 20%;
+	float: left;
+}
+
+.tab-label {
+	display: block;
+	color: #222;
+	text-align: center;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	cursor: pointer;
+}
+
+.tab-radio,
+.content {
+	position: absolute;
+	left: -999em;
+}
+
+.tab-radio:checked ~ .content {
+	left: 0;
+	right: 0;
+}
+
+.tab-radio:checked ~ .tab-label {
+	border-bottom: 4px solid #00b4da;
+}
+
+.banner {
+	overflow: hidden;
+	height: 170px;
+}
+
+.banner img {
+	width: 100%;
+}
+
+.second-bar {
+	display: flex;
+	margin: 20px 10px;
+	padding-bottom: 20px;
+	border-bottom: 1px solid #ccc;
+
+}
+
+.second-bar>div {
+	flex: 1 1 auto;
+}
+
+.second-bar .biaoqian {
+	text-align: center;
+	background: url(img/tag.jpg) no-repeat center top;
+	padding-top: 50px;
+}
+
+.third-bar {
+	display: flex;
+	margin: 0 10px;
+	text-align: center;
+}
+
+.third-bar>div {
+	flex: 1 1 auto;
+}
+
+.third-bar>div:nth-child(2) {
+	border-left: 1px solid #ccc;
+	border-right: 1px solid #ccc;
+}
+
+.img-container {
+	margin: 0 auto;
+	width: 80%;
+	height: 80px;
+	overflow: hidden;
+}
+
+.img-container img {
+	width: 100%;
+}
+
+.third-bar .title1 {
+	font: normal 1.3em/1.5em "Semihei"; 
+}
+
+.third-bar .title2 {
+	font: bold 1em/1.5em "Semihei"; 
+	color: #333;
+}
+
