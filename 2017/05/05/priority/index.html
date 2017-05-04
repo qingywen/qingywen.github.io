@@ -87,17 +87,17 @@
 
 
 
-<meta name="description" content="总有许多人在写css时会很奇怪：“为什么我的样式没有语法错误就是显示不出来呢？”在非浏览器原因的情况下一般都是选择器的优先级问题。尽管css选择器有许多组合，但我们仍有一定的规律来识别它们的优先级，毕竟浏览器也是通过一定的方式计算后来决定采用哪种样式进行渲染的。 来源不同对于不同源样式文件，除了important声明外，作者定义&amp;gt;用户定义&amp;gt;用户代理，更为详细的优先级顺序如下，从上到下依">
+<meta name="description" content="总有许多人在写css时会很奇怪：“为什么我的样式没有语法错误就是显示不出来呢？”在非浏览器原因的情况下一般都是选择器的优先级问题。尽管css选择器有许多组合，但我们仍有一定的规律来识别它们的优先级，毕竟浏览器也是通过一定的方式计算后来决定采用哪种样式进行渲染的。 来源不同,比较来源对于不同源样式文件，除了important声明外，作者定义&amp;gt;用户定义&amp;gt;用户代理，更为详细的优先级顺序如下，">
 <meta name="keywords" content="CSS">
 <meta property="og:type" content="article">
 <meta property="og:title" content="明白CSS优先级">
 <meta property="og:url" content="http://yoursite.com/2017/05/05/priority/index.html">
 <meta property="og:site_name" content="青菜不是葵花">
-<meta property="og:description" content="总有许多人在写css时会很奇怪：“为什么我的样式没有语法错误就是显示不出来呢？”在非浏览器原因的情况下一般都是选择器的优先级问题。尽管css选择器有许多组合，但我们仍有一定的规律来识别它们的优先级，毕竟浏览器也是通过一定的方式计算后来决定采用哪种样式进行渲染的。 来源不同对于不同源样式文件，除了important声明外，作者定义&amp;gt;用户定义&amp;gt;用户代理，更为详细的优先级顺序如下，从上到下依">
-<meta property="og:updated_time" content="2017-05-04T11:13:34.730Z">
+<meta property="og:description" content="总有许多人在写css时会很奇怪：“为什么我的样式没有语法错误就是显示不出来呢？”在非浏览器原因的情况下一般都是选择器的优先级问题。尽管css选择器有许多组合，但我们仍有一定的规律来识别它们的优先级，毕竟浏览器也是通过一定的方式计算后来决定采用哪种样式进行渲染的。 来源不同,比较来源对于不同源样式文件，除了important声明外，作者定义&amp;gt;用户定义&amp;gt;用户代理，更为详细的优先级顺序如下，">
+<meta property="og:updated_time" content="2017-05-04T11:20:35.936Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="明白CSS优先级">
-<meta name="twitter:description" content="总有许多人在写css时会很奇怪：“为什么我的样式没有语法错误就是显示不出来呢？”在非浏览器原因的情况下一般都是选择器的优先级问题。尽管css选择器有许多组合，但我们仍有一定的规律来识别它们的优先级，毕竟浏览器也是通过一定的方式计算后来决定采用哪种样式进行渲染的。 来源不同对于不同源样式文件，除了important声明外，作者定义&amp;gt;用户定义&amp;gt;用户代理，更为详细的优先级顺序如下，从上到下依">
+<meta name="twitter:description" content="总有许多人在写css时会很奇怪：“为什么我的样式没有语法错误就是显示不出来呢？”在非浏览器原因的情况下一般都是选择器的优先级问题。尽管css选择器有许多组合，但我们仍有一定的规律来识别它们的优先级，毕竟浏览器也是通过一定的方式计算后来决定采用哪种样式进行渲染的。 来源不同,比较来源对于不同源样式文件，除了important声明外，作者定义&amp;gt;用户定义&amp;gt;用户代理，更为详细的优先级顺序如下，">
 
 
 
@@ -365,8 +365,9 @@
 
       
         <p>总有许多人在写css时会很奇怪：“为什么我的样式没有语法错误就是显示不出来呢？”在非浏览器原因的情况下一般都是选择器的优先级问题。尽管css选择器有许多组合，但我们仍有一定的规律来识别它们的优先级，毕竟浏览器也是通过一定的方式计算后来决定采用哪种样式进行渲染的。</p>
-<h2 id="来源不同"><a href="#来源不同" class="headerlink" title="来源不同"></a>来源不同</h2><p>对于不同源样式文件，除了important声明外，作者定义&gt;用户定义&gt;用户代理，更为详细的优先级顺序如下，从上到下依次增高：<br>user agent stylesheet<br>user declarations （normal）<br>author declarations （normal）<br>author declarations （!important）<br>user declarations （!important）</p>
-<h2 id="Weight"><a href="#Weight" class="headerlink" title="Weight"></a>Weight</h2><p>对于同源文件，我们会根据特殊值weight来判断。我们把特殊性分为4个等级，每个等级代表一类选择器，每个等级的值为其所代表的选择器的个数乘以这一等级的权值，最后把所有等级的值相加得出选择器的特殊值。<br>4个等级的定义如下：<br>A等：代表内联样式，如: style=””，权值为1000。<br>B等：代表ID选择器，如：#content，权值为100。<br>C等：代表类，伪类和属性选择器，如.content，权值为10。<br>D等：代表类型选择器和伪元素选择器，如div p，权值为1。<br>Weight = nA + nB + nC + nD (其中n为该选择器的个数)。<br>Weight越大，则优先级越高。</p>
+<h2 id="来源不同-比较来源"><a href="#来源不同-比较来源" class="headerlink" title="来源不同,比较来源"></a>来源不同,比较来源</h2><p>对于不同源样式文件，除了important声明外，作者定义&gt;用户定义&gt;用户代理，更为详细的优先级顺序如下，从上到下依次增高：<br>user agent stylesheet<br>user declarations （normal）<br>author declarations （normal）<br>author declarations （!important）<br>user declarations （!important）</p>
+<h2 id="来源相同，比较Weight"><a href="#来源相同，比较Weight" class="headerlink" title="来源相同，比较Weight"></a>来源相同，比较Weight</h2><p>对于同源文件，我们会根据特殊值weight来判断。我们把特殊性分为4个等级，每个等级代表一类选择器，每个等级的值为其所代表的选择器的个数乘以这一等级的权值，最后把所有等级的值相加得出选择器的特殊值。<br>4个等级的定义如下：<br>A等：代表内联样式，如: style=””，权值为1000。<br>B等：代表ID选择器，如：#content，权值为100。<br>C等：代表类，伪类和属性选择器，如.content，权值为10。<br>D等：代表类型选择器和伪元素选择器，如div p，权值为1。<br>Weight = nA + nB + nC + nD (其中n为该选择器的个数)。<br>Weight越大，则优先级越高。</p>
+<h2 id="来源相同，Weight相同，比较顺序"><a href="#来源相同，Weight相同，比较顺序" class="headerlink" title="来源相同，Weight相同，比较顺序"></a>来源相同，Weight相同，比较顺序</h2><p>声明靠后者覆盖靠前者。</p>
 
       
     </div>
@@ -566,7 +567,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#来源不同"><span class="nav-number">1.</span> <span class="nav-text">来源不同</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Weight"><span class="nav-number">2.</span> <span class="nav-text">Weight</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#来源不同-比较来源"><span class="nav-number">1.</span> <span class="nav-text">来源不同,比较来源</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#来源相同，比较Weight"><span class="nav-number">2.</span> <span class="nav-text">来源相同，比较Weight</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#来源相同，Weight相同，比较顺序"><span class="nav-number">3.</span> <span class="nav-text">来源相同，Weight相同，比较顺序</span></a></li></ol></div>
             
 
           </div>
