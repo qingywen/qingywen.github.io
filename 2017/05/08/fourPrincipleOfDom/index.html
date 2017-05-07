@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="CSS," />
+  <meta name="keywords" content="DOM,JavaScript," />
 
 
 
@@ -87,17 +87,17 @@
 
 
 
-<meta name="description" content="总有许多人在写css时会很奇怪：“为什么我的样式没有语法错误就是显示不出来呢？”在非浏览器原因的情况下一般都是选择器的优先级问题。尽管css选择器有许多组合，但我们仍有一定的规律来识别它们的优先级，毕竟浏览器也是通过一定的方式计算后来决定采用哪种样式进行渲染的。 来源不同，比较来源对于不同源样式文件，除了important声明外，作者定义&amp;gt;用户定义&amp;gt;用户代理，更为详细的优先级顺序如下，">
-<meta name="keywords" content="CSS">
+<meta name="description" content="《Javascript DOM 编程艺术》中第五章有四个概念讲述的非常好，分别是平稳退化、分离JavaScript、向后兼容、性能考虑。这也是很多野生前端选手可能忽视的地方。 平稳退化让访问者在他们的浏览器不支持JavaScript的情况下仍能顺利的访问你的网站，这就是平稳退化的思想。例如，当我们要实现一个弹窗效果可能会写到：12&amp;lt;a href=&quot;javascript:popUp(&apos;http">
+<meta name="keywords" content="DOM,JavaScript">
 <meta property="og:type" content="article">
-<meta property="og:title" content="明白CSS优先级">
-<meta property="og:url" content="http://yoursite.com/2017/05/05/priority/index.html">
+<meta property="og:title" content="fourPrincipleOfDom">
+<meta property="og:url" content="http://yoursite.com/2017/05/08/fourPrincipleOfDom/index.html">
 <meta property="og:site_name" content="青菜不是葵花">
-<meta property="og:description" content="总有许多人在写css时会很奇怪：“为什么我的样式没有语法错误就是显示不出来呢？”在非浏览器原因的情况下一般都是选择器的优先级问题。尽管css选择器有许多组合，但我们仍有一定的规律来识别它们的优先级，毕竟浏览器也是通过一定的方式计算后来决定采用哪种样式进行渲染的。 来源不同，比较来源对于不同源样式文件，除了important声明外，作者定义&amp;gt;用户定义&amp;gt;用户代理，更为详细的优先级顺序如下，">
-<meta property="og:updated_time" content="2017-05-04T13:24:23.672Z">
+<meta property="og:description" content="《Javascript DOM 编程艺术》中第五章有四个概念讲述的非常好，分别是平稳退化、分离JavaScript、向后兼容、性能考虑。这也是很多野生前端选手可能忽视的地方。 平稳退化让访问者在他们的浏览器不支持JavaScript的情况下仍能顺利的访问你的网站，这就是平稳退化的思想。例如，当我们要实现一个弹窗效果可能会写到：12&amp;lt;a href=&quot;javascript:popUp(&apos;http">
+<meta property="og:updated_time" content="2017-05-07T09:37:34.212Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="明白CSS优先级">
-<meta name="twitter:description" content="总有许多人在写css时会很奇怪：“为什么我的样式没有语法错误就是显示不出来呢？”在非浏览器原因的情况下一般都是选择器的优先级问题。尽管css选择器有许多组合，但我们仍有一定的规律来识别它们的优先级，毕竟浏览器也是通过一定的方式计算后来决定采用哪种样式进行渲染的。 来源不同，比较来源对于不同源样式文件，除了important声明外，作者定义&amp;gt;用户定义&amp;gt;用户代理，更为详细的优先级顺序如下，">
+<meta name="twitter:title" content="fourPrincipleOfDom">
+<meta name="twitter:description" content="《Javascript DOM 编程艺术》中第五章有四个概念讲述的非常好，分别是平稳退化、分离JavaScript、向后兼容、性能考虑。这也是很多野生前端选手可能忽视的地方。 平稳退化让访问者在他们的浏览器不支持JavaScript的情况下仍能顺利的访问你的网站，这就是平稳退化的思想。例如，当我们要实现一个弹窗效果可能会写到：12&amp;lt;a href=&quot;javascript:popUp(&apos;http">
 
 
 
@@ -125,13 +125,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/05/05/priority/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/05/08/fourPrincipleOfDom/"/>
 
 
 
 
 
-  <title> 明白CSS优先级 | 青菜不是葵花 </title>
+  <title> fourPrincipleOfDom | 青菜不是葵花 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -270,7 +270,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/05/priority/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/08/fourPrincipleOfDom/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="青菜">
@@ -291,7 +291,7 @@
             
             
               
-                明白CSS优先级
+                fourPrincipleOfDom
               
             
           </h1>
@@ -306,8 +306,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-05T00:58:24+08:00">
-                2017-05-04
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-08T00:41:26+08:00">
+                2017-05-07
               </time>
             
 
@@ -329,8 +329,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/CSS/" itemprop="url" rel="index">
-                    <span itemprop="name">CSS</span>
+                  <a href="/categories/JavaScript/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript</span>
                   </a>
                 </span>
 
@@ -364,10 +364,16 @@
       
 
       
-        <p>总有许多人在写css时会很奇怪：“为什么我的样式没有语法错误就是显示不出来呢？”在非浏览器原因的情况下一般都是选择器的优先级问题。尽管css选择器有许多组合，但我们仍有一定的规律来识别它们的优先级，毕竟浏览器也是通过一定的方式计算后来决定采用哪种样式进行渲染的。</p>
-<h2 id="来源不同，比较来源"><a href="#来源不同，比较来源" class="headerlink" title="来源不同，比较来源"></a>来源不同，比较来源</h2><p>对于不同源样式文件，除了important声明外，作者定义&gt;用户定义&gt;用户代理，更为详细的优先级顺序如下，从上到下依次增高：<br>user agent stylesheet<br>user declarations （normal）<br>author declarations （normal）<br>author declarations （!important）<br>user declarations （!important）</p>
-<h2 id="来源相同，比较Weight"><a href="#来源相同，比较Weight" class="headerlink" title="来源相同，比较Weight"></a>来源相同，比较Weight</h2><p>对于同源文件，我们会根据特殊值weight来判断。我们把特殊性分为4个等级，每个等级代表一类选择器，每个等级的值为其所代表的选择器的个数乘以这一等级的权值，最后把所有等级的值相加得出选择器的特殊值。<br>4个等级的定义如下：<br>A等：代表内联样式，如: style=””，权值为1000。<br>B等：代表ID选择器，如：#content，权值为100。<br>C等：代表类，伪类和属性选择器，如.content，权值为10。<br>D等：代表类型选择器和伪元素选择器，如div p，权值为1。<br>Weight = nA + nB + nC + nD (其中n为该选择器的个数)。<br>Weight越大，则优先级越高。</p>
-<h2 id="来源相同，Weight相同，比较顺序"><a href="#来源相同，Weight相同，比较顺序" class="headerlink" title="来源相同，Weight相同，比较顺序"></a>来源相同，Weight相同，比较顺序</h2><p>声明靠后者覆盖靠前者。</p>
+        <p>《Javascript DOM 编程艺术》中第五章有四个概念讲述的非常好，分别是平稳退化、分离JavaScript、向后兼容、性能考虑。这也是很多野生前端选手可能忽视的地方。</p>
+<h3 id="平稳退化"><a href="#平稳退化" class="headerlink" title="平稳退化"></a>平稳退化</h3><p>让访问者在他们的浏览器不支持JavaScript的情况下仍能顺利的访问你的网站，这就是平稳退化的思想。<br>例如，当我们要实现一个弹窗效果可能会写到：<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"javascript:popUp('http://www.example.com/')"</span>&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span></div><div class="line">// <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span> <span class="attr">onclick</span>=<span class="string">"popUp('http://www.example.com/')"</span>&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span></div></pre></td></tr></table></figure><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">popUp</span>(<span class="params">objectUrl</span>) </span>&#123;</div><div class="line">	<span class="built_in">window</span>.open(objectUrl,<span class="string">'popup'</span>,<span class="string">'width=320,height=480'</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>但有两种情况使得网页的可访问性降低：一是当用户禁用JavaScript时,点击无效；二是大多数搜索机器人无法理解js代码，它们在搜索引擎上的排名就会降低。因此平稳退化的目的就是当Javascript无效时，仍能让我们的网站显示给用户有效的信息。这里实现平稳退化的方式如下：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"http://www.example.com/"</span> <span class="attr">onclick</span>=<span class="string">"popUp(this.href);return false;"</span>&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span></div></pre></td></tr></table></figure><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">popUp</span>(<span class="params">objectUrl</span>) </span>&#123;</div><div class="line">	<span class="built_in">window</span>.open(objectUrl,<span class="string">'popup'</span>,<span class="string">'width=320,height=480'</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h3 id="分离JavaScript"><a href="#分离JavaScript" class="headerlink" title="分离JavaScript"></a>分离JavaScript</h3><p>在HTML文档里使用onclick之类的属性较容易出现问题，这里我们将使用类似CSS的挂钩机制来将HTML和JavaScript分离开来，这样将使得我们的网页健壮得多。实现方式如下：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"http://www.example.com/"</span> <span class="attr">class</span>=<span class="string">"popup"</span>&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span></div></pre></td></tr></table></figure><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">window</span>.onload = prepareLinks;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">prepareLinks</span>(<span class="params"></span>) </span>&#123;</div><div class="line">	<span class="keyword">var</span> links = <span class="built_in">document</span>.getElementsByTagName(<span class="string">'a'</span>);</div><div class="line">	<span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; links.length; i++) &#123;</div><div class="line">		<span class="keyword">if</span> (links[i].className == <span class="string">"popup"</span>) &#123;</div><div class="line">			links[i].onclick = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">				popUp(<span class="keyword">this</span>.href);</div><div class="line">				<span class="keyword">return</span> <span class="literal">false</span>;</div><div class="line">			&#125;</div><div class="line">		&#125;			</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">popUp</span>(<span class="params">objectUrl</span>) </span>&#123;</div><div class="line">	<span class="built_in">window</span>.open(objectUrl, <span class="string">"pop"</span>, <span class="string">"width=320,height=480"</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>这里的基本思想是给每个需要弹窗的a标签加上样式popup，然后再循环遍历文档里所有具有该样式的a标签，并给其添加上相应的点击事件，并返回false，使得href值无效。这里有一点要注意的是需要在文档加载完成之后再遍历所有的a标签，因此需要用到window的onload方法。这样的实现思想就比较好的演示了如何将HTML和JavaScript分离开来。</p>
+<h3 id="向后兼容"><a href="#向后兼容" class="headerlink" title="向后兼容"></a>向后兼容</h3><p>考虑到部分老的浏览器对JavaScript支持的并不是很好，我们需要用到对象检测的方法来给我们的浏览器设置门槛。一般的思想是：<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> (condition) &#123; statements &#125; </div><div class="line">&lt;!-- 例如 --&gt;</div><div class="line"><span class="keyword">if</span> (<span class="built_in">document</span>.getElementById(<span class="string">'pop'</span>)) &#123;</div><div class="line">	<span class="keyword">var</span> pop = <span class="built_in">document</span>.getElementById(<span class="string">'pop'</span>);</div><div class="line">	...</div><div class="line">&#125;</div></pre></td></tr></table></figure>也就是说如果浏览器支持某行为，我们则使用某段代码，但这样会给我们的方法添加很多碍于阅读的花括号。因此我们不妨换一个思维：<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> (!condition) &#123; <span class="keyword">return</span> <span class="literal">false</span>; &#125; </div></pre></td></tr></table></figure>即在使用的方法前进行否定判断：“你若不支持我，我就离开”。这是一种更为简洁的思路，在使用相应的api之前进行对象检测，检测过关则进行下一步，不过关则离开。其代码也更加清晰。</p>
+<h3 id="性能考虑"><a href="#性能考虑" class="headerlink" title="性能考虑"></a>性能考虑</h3><p>基本的性能提升策略有以下几种：</p>
+<ul>
+<li>尽量减少访问DOM和尽量减少标记</li>
+<li>合并和放置脚本</li>
+<li>压缩脚本</li>
+</ul>
 
       
     </div>
@@ -397,7 +403,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/CSS/" rel="tag"># CSS</a>
+            <a href="/tags/DOM/" rel="tag"># DOM</a>
+          
+            <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
           
         </div>
       
@@ -410,18 +418,14 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/05/05/src-href/" rel="next" title="src与href的区别">
-                <i class="fa fa-chevron-left"></i> src与href的区别
-              </a>
-            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/04/14/html-viewport/" rel="prev" title="关于viewport的一些思考">
-                关于viewport的一些思考 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/05/05/src-href/" rel="prev" title="src与href的区别">
+                src与href的区别 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -571,7 +575,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#来源不同，比较来源"><span class="nav-number">1.</span> <span class="nav-text">来源不同，比较来源</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#来源相同，比较Weight"><span class="nav-number">2.</span> <span class="nav-text">来源相同，比较Weight</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#来源相同，Weight相同，比较顺序"><span class="nav-number">3.</span> <span class="nav-text">来源相同，Weight相同，比较顺序</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#平稳退化"><span class="nav-number">1.</span> <span class="nav-text">平稳退化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#分离JavaScript"><span class="nav-number">2.</span> <span class="nav-text">分离JavaScript</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#向后兼容"><span class="nav-number">3.</span> <span class="nav-text">向后兼容</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#性能考虑"><span class="nav-number">4.</span> <span class="nav-text">性能考虑</span></a></li></ol></div>
             
 
           </div>
