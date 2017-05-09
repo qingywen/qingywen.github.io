@@ -270,6 +270,160 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/09/js-dom-dynamicTag/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="青菜">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="青菜不是葵花">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/05/09/js-dom-dynamicTag/" itemprop="url">
+                  js-dom-dynamicTag
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-09T14:53:31Z">
+                2017-05-09
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JavaScript/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>看到《DOM编程艺术》第7章，有几点值得记一下。</p>
+<h3 id="document-write-与-innerHTML"><a href="#document-write-与-innerHTML" class="headerlink" title="document.write 与 innerHTML"></a>document.write 与 innerHTML</h3><p>document.write是一个古老的方法，它在W3C上定义了两种用途：一是在文档中输出HTML，另一种是在调用该方法的的窗口之外的窗口、框架中产生新文档（记得用close()关闭）。看似document.write对产生一个新的文档或窗口这样的用途很有意义，但书上说：<blockquote><p>document.write的最大缺点是它违背了“行为与样式分离的原则”。即使把document.write语句挪到外部函数里，也还是需要在标记的<code>&lt;body&gt;</code>部分使用<code>&lt;script&gt;</code>标签才能调用那个函数。</p>
+</blockquote>厮以为作者在这里讲的并不清楚，document.write违背了行为与表现分离的原则并不在于函数需要放在外部引用还是内部引用，而是因为当我们写了一段document.write来产生一个HTML文档时，这个新文档的结构hin可能是这个样子的：<br><img src="/2017/05/09/js-dom-dynamicTag/document.PNG" alt="document.PNG" title="">如你所见，<code>&lt;script&gt;</code>标签在<code>&lt;p&gt;</code>标签前面，也就是说document.write只能在现有文档结构的最后添加元素，因此只要使用document.write,则必定有HTML标签在<code>&lt;script&gt;</code>标签之后。这样的标记顺序十分的混乱，且里面的<code>&lt;script&gt;</code>标签也不是我们想要的，这样让我对document.write的好感度一下降低零点。</p>
+<p>反观用innerHTML来实现这个输出文档的功能，其输出文档结构如下：<br><img src="/2017/05/09/js-dom-dynamicTag/innerHTML.PNG" alt="innerHTML.PNG" title="">Look!这才是我们想要的行为与表现分离的文档结构！虽然innerHTML并不是DOM标准的组部分，但是已经包含在HTML5的规范中。几乎所有的浏览器都支持该属性，绝大多数情况下可以完美取代document.write方法。书上有一个很恰当的比方，“innerHTML就像一把大锤，而DOM则是一把手术刀”，我们可以用innerHTML大刀阔斧的直接插入网页内容，但是若想获取或修改DOM节点的属性等，我们还得需要DOM里更精确的方法如createElement与createTextNode等。</p>
+<h3 id="重回图片库：结构样式分离升级版"><a href="#重回图片库：结构样式分离升级版" class="headerlink" title="重回图片库：结构样式分离升级版"></a>重回图片库：结构样式分离升级版</h3><p><blockquote><p>当有一段标记仅是为脚本服务的，即为了让DOM脚本处理它们，那么用DOM方法来创建它们才是最合适的选择</p>
+</blockquote>行为与结构分离的三层逐级进化概念：</p>
+<ol>
+<li>给HTML文档引用外部脚本。</li>
+<li>在HTML里设置挂钩，在外部js文件中给DOM节点添加事件，而不是在节点中添加类似<code>onclick=“func()”</code>这样的属性。</li>
+<li>只是为了DOM操作而存在的DOM节点应该动态创建，而不是直接出现在标记里。</li>
+</ol>
+<h3 id="渐进增强与Ajax"><a href="#渐进增强与Ajax" class="headerlink" title="渐进增强与Ajax"></a>渐进增强与Ajax</h3><p>Ajax是一种用来与服务器异步交互的技术，其核心为XMLHttpRequest，很多书中都会大谈特谈Ajax的方便之处，但《DOM编程》显然为一股清澈之流，作者认为能通过Ajax实现的应用一定也可以通过非Ajax技术来实现，且构建Ajax网站最好的方法是先构建一个常规的网站，再去Hijax它。这个观点跟平稳退化有着相似之处。十分欣赏作者在网站构建方面的缜密思维，总会考虑到如果这个方法可用，则怎么去做，如果这个方法不可用，再怎么去做。从不假设用户的行为与环境，而是从最基本的条件出发，这样使得少量的特殊用户也能很好的浏览我们的站点。</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/08/js-onload/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1523,7 +1677,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-count">9</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -1545,7 +1699,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-count">6</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
