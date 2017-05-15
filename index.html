@@ -347,7 +347,12 @@
       
         
           
-            <p>安装了VS2012并下载了opencv249后，按照<a href="http://www.cnblogs.com/csulennon/p/3758234.html" target="_blank" rel="external">Lennon</a>的方法配置了系统环境变量、包含目录、库目录以及附加依赖，运行程序则开始报错”无法打开或找不到PDB文件”，百度了很久都是如下步骤：<br><img src="/2017/05/15/opencv-pdb/anwser1.PNG" alt="anwser1.PNG" title="">但依然无法运行，后来仔细查看，通过谷歌搜索到一个答案，才发现自己的输出信息不是报错，而是正常的返回值，具体信息为”wb.exe”已退出，返回值为 -1 (0xffffffff)。”然后查看main函数有一个输入文件路径填写不正确，因此程序退出一闪而过。将文件路径填写正确后才开始正常运行。<br>经验一：百度没有谷歌靠谱。<br>经验二：以后需要仔细查看报错信息而不是直接复制粘贴进行搜索。</p>
+            <p>安装了VS2012并下载了opencv249后，按照<a href="http://www.cnblogs.com/csulennon/p/3758234.html" target="_blank" rel="external">Lennon</a>的方法配置了系统环境变量、包含目录、库目录以及附加依赖，运行程序则开始出现各种错误，记录一下。</p>
+<h3 id="找不到XXX-lib文件"><a href="#找不到XXX-lib文件" class="headerlink" title="找不到XXX.lib文件"></a>找不到XXX.lib文件</h3><p>确定附加依赖项配置文件路径及版本号正确。文件名后面的数字及版本号。</p>
+<h3 id="无法找到xxx-dll文件"><a href="#无法找到xxx-dll文件" class="headerlink" title="无法找到xxx.dll文件"></a>无法找到xxx.dll文件</h3><p>缺乏动态文件库，可以手动下载并添加到<code>C:\Windows\System32</code>目录（或报错目录）下，下载地址为<a href="https://www.dll-files.com/" target="_blank" rel="external">Download missing dll</a></p>
+<h3 id="无法打开或找不到PDB文件"><a href="#无法打开或找不到PDB文件" class="headerlink" title="无法打开或找不到PDB文件"></a>无法打开或找不到PDB文件</h3><p><img src="/2017/05/15/opencv-pdb/anwser1.PNG" alt="anwser1.PNG" title="">此图即可。</p>
+<h3 id="“wb-exe”已退出，返回值为-1-0xffffffff"><a href="#“wb-exe”已退出，返回值为-1-0xffffffff" class="headerlink" title="“wb.exe”已退出，返回值为 -1 (0xffffffff)"></a>“wb.exe”已退出，返回值为 -1 (0xffffffff)</h3><p>查看main函数有一个输入文件路径填写不正确，因此程序退出一闪而过。将文件路径填写正确后才开始正常运行。具体情况具体分析。</p>
+<h3 id="其他要注意的地方"><a href="#其他要注意的地方" class="headerlink" title="其他要注意的地方"></a>其他要注意的地方</h3><p>opencv中v10 代表适配 Visual Studio 2011<br>opencv中v11 代表适配 Visual Studio 2012<br>opencv中v14 代表适配 Visual Studio 2015<br>经验一：百度没有谷歌靠谱。<br>经验二：以后需要仔细查看报错信息而不是直接复制粘贴进行搜索。</p>
 
           
         
