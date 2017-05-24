@@ -94,7 +94,7 @@
 <meta property="og:url" content="http://yoursite.com/2017/05/17/js-pro-ecma/index.html">
 <meta property="og:site_name" content="青菜不是葵花">
 <meta property="og:description" content="ECMAScript中的一切都区分大小写。 ECMAScript的变量是松散类型的，可以用来保存任何类型的数据。 ECMAScript的5种简单数据类型（基本数据类型）：Undefined、Null、Boolean、Number、String。还有一种复杂数据类型——Object。 操作符typeof null返回object，因为null被认为是一个空的对象的引用。对未声明和未经初始化的变量执">
-<meta property="og:updated_time" content="2017-05-19T01:08:02.148Z">
+<meta property="og:updated_time" content="2017-05-22T02:47:17.213Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="js-pro-ecma">
 <meta name="twitter:description" content="ECMAScript中的一切都区分大小写。 ECMAScript的变量是松散类型的，可以用来保存任何类型的数据。 ECMAScript的5种简单数据类型（基本数据类型）：Undefined、Null、Boolean、Number、String。还有一种复杂数据类型——Object。 操作符typeof null返回object，因为null被认为是一个空的对象的引用。对未声明和未经初始化的变量执">
@@ -382,7 +382,7 @@
 <li>ECMAScript没有函数签名，相同的函数名称即使参数个数不同，后定义的会覆盖前面的，也就是没有重载。ECMAScript函数中的参数在内部是用一个数组来表示的，可以通过arguments对象来访问所传参数，且对所传参数个数没有要求，并不需要一定和命名参数个数相等。这一特性可以弥补没有重载的缺憾。</li>
 <li>在通过函数的arguments对象修改参数值时，会反映到对应的命名参数中（内存空间相互独立，只是值会同步）。arguments对象的长度由传入参数个数决定，若修改长度之外的参数值，将不会反应到对应的命名参数中。而没有传递值的命名参数将自动被赋予undefined值。严格模式下不允许重写arguments值。</li>
 <li>ECMAScript中所有的参数传递的都是值，不可能通过引用传递参数。</li>
-<li>检测变量是不是基本数据类型：typeof操作符。检测变量是什么类型的对象：instanceof操作符。</li>
+<li>检测变量是什么基本数据类型：typeof操作符，返回值可能为undefined、string、boolean、number、object、function。检测变量是什么类型的对象：instanceof操作符,如果给定对象是引用类型的实例，则返回true。</li>
 <li>JavaScript具有自动垃圾收集机制，垃圾收集器会按照固定的时间间隔周期性的执行这一项操作。</li>
 <li>基本类型值在内存中占据固定空间的大小，因此被保存在栈内存中；引用类型的值是对象，保存在堆内存中。</li>
 <li>标记清除是目前主流的垃圾回收机制。还有一种是引用计数，但当代码中存在循环引用时，引用计数方法会导致问题。</li>
