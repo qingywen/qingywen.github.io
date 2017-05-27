@@ -87,17 +87,17 @@
 
 
 
-<meta name="description" content="ECMAScript中的一切都区分大小写。 ECMAScript的变量是松散类型的，可以用来保存任何类型的数据。 ECMAScript的5种简单数据类型（基本数据类型）：Undefined、Null、Boolean、Number、String。还有一种复杂数据类型——Object。 操作符typeof null返回object，因为null被认为是一个空的对象的引用。对未声明和未经初始化的变量执">
+<meta name="description" content="ECMAScript中的一切都区分大小写。 ECMAScript的变量是松散类型的，可以用来保存任何类型的数据。 ECMAScript的5种简单数据类型（基本数据类型）：Undefined、Null、Boolean、Number、String。还有一种复杂数据类型——Object。 操作符typeof null返回object，高程中解释说“null被认为是一个空对象的引用”，但规范里说明到对象">
 <meta name="keywords" content="JavaScript">
 <meta property="og:type" content="article">
 <meta property="og:title" content="js-pro-ecma">
 <meta property="og:url" content="http://yoursite.com/2017/05/17/js-pro-ecma/index.html">
 <meta property="og:site_name" content="青菜不是葵花">
-<meta property="og:description" content="ECMAScript中的一切都区分大小写。 ECMAScript的变量是松散类型的，可以用来保存任何类型的数据。 ECMAScript的5种简单数据类型（基本数据类型）：Undefined、Null、Boolean、Number、String。还有一种复杂数据类型——Object。 操作符typeof null返回object，因为null被认为是一个空的对象的引用。对未声明和未经初始化的变量执">
-<meta property="og:updated_time" content="2017-05-22T02:47:17.213Z">
+<meta property="og:description" content="ECMAScript中的一切都区分大小写。 ECMAScript的变量是松散类型的，可以用来保存任何类型的数据。 ECMAScript的5种简单数据类型（基本数据类型）：Undefined、Null、Boolean、Number、String。还有一种复杂数据类型——Object。 操作符typeof null返回object，高程中解释说“null被认为是一个空对象的引用”，但规范里说明到对象">
+<meta property="og:updated_time" content="2017-05-27T06:52:34.577Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="js-pro-ecma">
-<meta name="twitter:description" content="ECMAScript中的一切都区分大小写。 ECMAScript的变量是松散类型的，可以用来保存任何类型的数据。 ECMAScript的5种简单数据类型（基本数据类型）：Undefined、Null、Boolean、Number、String。还有一种复杂数据类型——Object。 操作符typeof null返回object，因为null被认为是一个空的对象的引用。对未声明和未经初始化的变量执">
+<meta name="twitter:description" content="ECMAScript中的一切都区分大小写。 ECMAScript的变量是松散类型的，可以用来保存任何类型的数据。 ECMAScript的5种简单数据类型（基本数据类型）：Undefined、Null、Boolean、Number、String。还有一种复杂数据类型——Object。 操作符typeof null返回object，高程中解释说“null被认为是一个空对象的引用”，但规范里说明到对象">
 
 
 
@@ -368,8 +368,8 @@
 <li>ECMAScript中的一切都区分大小写。</li>
 <li>ECMAScript的变量是松散类型的，可以用来保存任何类型的数据。</li>
 <li>ECMAScript的5种简单数据类型（基本数据类型）：Undefined、Null、Boolean、Number、String。还有一种复杂数据类型——Object。</li>
-<li>操作符typeof null返回object，因为null被认为是一个空的对象的引用。对未声明和未经初始化的变量执行undefined都会返回undefined。</li>
-<li>已声明但未经初始化的变量，其字面量值为undefined。</li>
+<li>操作符typeof null返回object，高程中解释说“null被认为是一个空对象的引用”，但规范里说明到对象值缺失的数据，其数据类型为null。</li>
+<li>对未声明和未经初始化的变量执行typeof都会返回undefined。有一点要注意的是变量提升，即使变量已声明，解释器还是会先给变量赋值为undefined，直到上下文准备好，这个过程比较隐秘。</li>
 <li>如果定义的变量将来用于保存对象，那么最好将该变量初始化为null。</li>
 <li><code>var cat; console.log(cat == null);</code> 会返回true，是因为null == undefined。</li>
 <li>不要测试浮点数值的大小！</li>
