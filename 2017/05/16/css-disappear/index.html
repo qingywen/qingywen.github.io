@@ -94,7 +94,7 @@
 <meta property="og:url" content="http://yoursite.com/2017/05/16/css-disappear/index.html">
 <meta property="og:site_name" content="青菜不是葵花">
 <meta property="og:description" content="display: none元素消失，不占据页面空间。会导致页面的重排和重绘。无法获取鼠标事件。 visibility: hidden元素消失，占据页面空间。导致页面的重绘。无法获取鼠标事件。 opacity: 0元素没有消失，只是看不见。导致页面的重绘。可获取鼠标事件。 position: reletive; left: -10000px;元素定位在可视区域之外。导致该元素的重排和重绘。无法获取鼠">
-<meta property="og:updated_time" content="2017-05-27T07:08:11.491Z">
+<meta property="og:updated_time" content="2017-05-27T07:14:12.450Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CSS的几种消失机制">
 <meta name="twitter:description" content="display: none元素消失，不占据页面空间。会导致页面的重排和重绘。无法获取鼠标事件。 visibility: hidden元素消失，占据页面空间。导致页面的重绘。无法获取鼠标事件。 opacity: 0元素没有消失，只是看不见。导致页面的重绘。可获取鼠标事件。 position: reletive; left: -10000px;元素定位在可视区域之外。导致该元素的重排和重绘。无法获取鼠">
@@ -368,8 +368,9 @@
 <h2 id="visibility-hidden"><a href="#visibility-hidden" class="headerlink" title="visibility: hidden"></a>visibility: hidden</h2><p>元素消失，占据页面空间。导致页面的重绘。无法获取鼠标事件。</p>
 <h2 id="opacity-0"><a href="#opacity-0" class="headerlink" title="opacity: 0"></a>opacity: 0</h2><p>元素没有消失，只是看不见。导致页面的重绘。可获取鼠标事件。</p>
 <h2 id="position-reletive-left-10000px"><a href="#position-reletive-left-10000px" class="headerlink" title="position: reletive; left: -10000px;"></a>position: reletive; left: -10000px;</h2><p>元素定位在可视区域之外。导致该元素的重排和重绘。无法获取鼠标事件。</p>
-<h2 id="height-0-or-width-0"><a href="#height-0-or-width-0" class="headerlink" title="height:0 or width:0"></a>height:0 or width:0</h2><p>若设置<code>overflow:hidden</code>，元素无法获取鼠标事件。若没有，元素宽高仍为0，但其子元素会撑破父元素，因此仍可以获取到鼠标事件。</p>
-<h2 id="z-index：-1"><a href="#z-index：-1" class="headerlink" title="z-index：-1"></a>z-index：-1</h2><p>此外，这元素都可以用选择器定位到，可见仍是可进行DOM操作的元素。因此虽然无法获取鼠标事件，但可以用js来触发事件响应。例如用<code>$(&#39;.item&#39;).click()</code>即触发点击事件。</p>
+<h2 id="height-0-or-width-0"><a href="#height-0-or-width-0" class="headerlink" title="height:0 or width:0"></a>height:0 or width:0</h2><p>若设置<code>overflow:hidden</code>，元素无法获取鼠标事件。若没有，元素宽高仍为0，但其子元素会撑破父元素，因此仍可以通过子元素获取到鼠标事件。</p>
+<h2 id="z-index：-1"><a href="#z-index：-1" class="headerlink" title="z-index：-1"></a>z-index：-1</h2><p>很少用到这个，不过有同学提到了，因此还是列出来。</p>
+<p>此外，这元素都可以用选择器定位到，可见仍是可进行DOM操作的元素。因此虽然无法获取鼠标事件，但可以用js来触发事件响应。例如用<code>$(&#39;.item&#39;).click()</code>即触发点击事件。</p>
 
       
     </div>
