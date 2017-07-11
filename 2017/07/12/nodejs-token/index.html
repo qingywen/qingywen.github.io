@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="NodeJS," />
 
 
 
@@ -87,17 +87,17 @@
 
 
 
-<meta name="description" content="浅谈令牌原理及漏洞分析令牌讲解 使用方法 基本概念token中文译名为令牌，包含三个部分：header、payload、signature。 1token = encodeBase64(header) + &apos;.&apos; + encodeBase64(payload) + &apos;.&apos; + encodeBase64(signature) header此为令牌的头部，可以在其中设置签名算法和token类型，如下所">
-<meta name="keywords">
+<meta name="description" content="相关资源：令牌讲解 使用方法 基本概念token中文译名为令牌，包含三个部分：header、payload、signature。 1token = encodeBase64(header) + &apos;.&apos; + encodeBase64(payload) + &apos;.&apos; + encodeBase64(signature) header此为令牌的头部，可以在其中设置签名算法和token类型，如下所示：1hea">
+<meta name="keywords" content="NodeJS">
 <meta property="og:type" content="article">
-<meta property="og:title" content="nodejs-token">
+<meta property="og:title" content="浅谈令牌原理及漏洞分析">
 <meta property="og:url" content="http://yoursite.com/2017/07/12/nodejs-token/index.html">
 <meta property="og:site_name" content="青菜不是葵花">
-<meta property="og:description" content="浅谈令牌原理及漏洞分析令牌讲解 使用方法 基本概念token中文译名为令牌，包含三个部分：header、payload、signature。 1token = encodeBase64(header) + &apos;.&apos; + encodeBase64(payload) + &apos;.&apos; + encodeBase64(signature) header此为令牌的头部，可以在其中设置签名算法和token类型，如下所">
-<meta property="og:updated_time" content="2017-07-11T11:00:51.192Z">
+<meta property="og:description" content="相关资源：令牌讲解 使用方法 基本概念token中文译名为令牌，包含三个部分：header、payload、signature。 1token = encodeBase64(header) + &apos;.&apos; + encodeBase64(payload) + &apos;.&apos; + encodeBase64(signature) header此为令牌的头部，可以在其中设置签名算法和token类型，如下所示：1hea">
+<meta property="og:updated_time" content="2017-07-11T11:10:53.999Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="nodejs-token">
-<meta name="twitter:description" content="浅谈令牌原理及漏洞分析令牌讲解 使用方法 基本概念token中文译名为令牌，包含三个部分：header、payload、signature。 1token = encodeBase64(header) + &apos;.&apos; + encodeBase64(payload) + &apos;.&apos; + encodeBase64(signature) header此为令牌的头部，可以在其中设置签名算法和token类型，如下所">
+<meta name="twitter:title" content="浅谈令牌原理及漏洞分析">
+<meta name="twitter:description" content="相关资源：令牌讲解 使用方法 基本概念token中文译名为令牌，包含三个部分：header、payload、signature。 1token = encodeBase64(header) + &apos;.&apos; + encodeBase64(payload) + &apos;.&apos; + encodeBase64(signature) header此为令牌的头部，可以在其中设置签名算法和token类型，如下所示：1hea">
 
 
 
@@ -131,7 +131,7 @@
 
 
 
-  <title> nodejs-token | 青菜不是葵花 </title>
+  <title> 浅谈令牌原理及漏洞分析 | 青菜不是葵花 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -291,7 +291,7 @@
             
             
               
-                nodejs-token
+                浅谈令牌原理及漏洞分析
               
             
           </h1>
@@ -316,6 +316,28 @@
             
           </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/NodeJS/" itemprop="url" rel="index">
+                    <span itemprop="name">NodeJS</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -342,18 +364,19 @@
       
 
       
-        <h1 id="浅谈令牌原理及漏洞分析"><a href="#浅谈令牌原理及漏洞分析" class="headerlink" title="浅谈令牌原理及漏洞分析"></a>浅谈令牌原理及漏洞分析</h1><p><a href="https://auth0.com/blog/critical-vulnerabilities-in-json-web-token-libraries/" target="_blank" rel="external">令牌讲解</a><a href="https://github.com/brianloveswords/node-jws" target="_blank" rel="external"> 使用方法</a></p>
-<h3 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h3><h5 id="token"><a href="#token" class="headerlink" title="token"></a>token</h5><p>中文译名为令牌，包含三个部分：header、payload、signature。</p>
+        <p>相关资源：<br><a href="https://auth0.com/blog/critical-vulnerabilities-in-json-web-token-libraries/" target="_blank" rel="external">令牌讲解</a><br><a href="https://github.com/brianloveswords/node-jws" target="_blank" rel="external"> 使用方法</a></p>
+<h1 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h1><h3 id="token"><a href="#token" class="headerlink" title="token"></a>token</h3><p>中文译名为令牌，包含三个部分：header、payload、signature。</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">token = encodeBase64(header) + <span class="string">'.'</span> + encodeBase64(payload) + <span class="string">'.'</span> + encodeBase64(signature)</div></pre></td></tr></table></figure>
-<h5 id="header"><a href="#header" class="headerlink" title="header"></a>header</h5><p>此为令牌的头部，可以在其中设置签名算法和token类型，如下所示：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">header = <span class="string">'&#123;"alg":"HS256","typ":"JWT"&#125;'</span></div></pre></td></tr></table></figure></p>
-<h5 id="payload"><a href="#payload" class="headerlink" title="payload"></a>payload</h5><p>该部分包含我们需要设置的信息：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">payload = <span class="string">'&#123;"loggedInAs":"admin","iat":1422779638&#125;'</span></div></pre></td></tr></table></figure></p>
-<h5 id="signature"><a href="#signature" class="headerlink" title="signature"></a>signature</h5><p>signature则是将header和payload结合并用指定算法进行签名（加密）的结果。</p>
+<h3 id="header"><a href="#header" class="headerlink" title="header"></a>header</h3><p>此为令牌的头部，可以在其中设置签名算法和token类型，如下所示：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">header = <span class="string">'&#123;"alg":"HS256","typ":"JWT"&#125;'</span></div></pre></td></tr></table></figure></p>
+<h3 id="payload"><a href="#payload" class="headerlink" title="payload"></a>payload</h3><p>该部分包含我们需要设置的信息：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">payload = <span class="string">'&#123;"loggedInAs":"admin","iat":1422779638&#125;'</span></div></pre></td></tr></table></figure></p>
+<h3 id="signature"><a href="#signature" class="headerlink" title="signature"></a>signature</h3><p>signature则是将header和payload结合并用指定算法进行签名（加密）的结果。</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">key = <span class="string">'secretkey'</span></div><div class="line">unsignedToken = encodeBase64(header) + <span class="string">'.'</span> + encodeBase64(payload)</div><div class="line">signature = HMAC-SHA256(key, unsignedToken)</div></pre></td></tr></table></figure>
-<h3 id="令牌原理"><a href="#令牌原理" class="headerlink" title="令牌原理"></a>令牌原理</h3><p>验证令牌有效性是整个机制的关键：我们的方法是根据header里提供的信息，对payload再次进行签名，并将结果与signature进行比对，如果一致，则令牌有效；若不一致，则说明是经过恶意改动的无效令牌。</p>
-<h3 id="关键漏洞"><a href="#关键漏洞" class="headerlink" title="关键漏洞"></a>关键漏洞</h3><ul>
-<li>因为我们的令牌中header和payload部分可直接通过解码获得，因此我们的签名算法等信息可以被任意人员获取，且signature部分的验证算法是通过header里的信息来决定的。因此攻击者可以修改头部信息<figure class="highlight plain"><figcaption><span>none```，因此服务器可能会将未经验证的signature当做已经验证过且有效的token。这样任何人就可以随意访问我们的系统。但是，现在大多数库都对此有一个防御机制：若提供了secret key，则那些设置为```alt: none```的令牌就无效，因此解决。</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">* 令牌机制的关键漏洞在于服务端的验证算法取决于令牌里的header信息。如果令牌采用RS256算法进行签名，一旦攻击者获得public key，则可以用如下方式来伪造令牌：将令牌的算法设置为HS256，并将secret key设置为RS256算法的签名公钥，这样就可以鱼目混珠啦。</div><div class="line">```js</div><div class="line">var fs = require(&apos;fs&apos;);</div><div class="line">var jwt = require(&apos;jsonwebtoken&apos;);</div><div class="line">var cert_pub = fs.readFileSync(__dirname + &apos;/rsa-public-key.pem&apos;);</div><div class="line"></div><div class="line">var tokenPayload = &#123;</div><div class="line">    foo: &quot;bar&quot;</div><div class="line">&#125;</div><div class="line"></div><div class="line">var forgedToken = jwt.sign(tokenPayload,  cert_pub, &#123; algorithm: &apos;HS256&apos; &#125;);</div><div class="line"></div><div class="line">jwt.verify(forgedToken, cert_pub, function(err,decoded)&#123;</div><div class="line">    if (err) &#123;</div><div class="line">        console.error(err);</div><div class="line">    &#125; else &#123;</div><div class="line">        console.log(decoded);</div><div class="line">    &#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure></li>
-</ul>
-<p>但这种方式理论上是这样，实际上的结果并不如此，而是返回invalid algorithm的错误。若有大神求解答。<br>但是针对此种错误，jsonwebtoken已经给出了相应的解决方案，服务端在验证时可以指定签名算法的类型，因此可以避免伪造令牌。</p>
+<h1 id="令牌原理"><a href="#令牌原理" class="headerlink" title="令牌原理"></a>令牌原理</h1><p>验证令牌有效性是整个机制的关键：我们的方法是根据header里提供的信息，对payload再次进行签名，并将结果与signature进行比对，如果一致，则令牌有效；若不一致，则说明是经过恶意改动的无效令牌。</p>
+<h1 id="关键漏洞"><a href="#关键漏洞" class="headerlink" title="关键漏洞"></a>关键漏洞</h1><ol>
+<li>因为我们的令牌中header和payload部分可直接通过解码获得，因此我们的签名算法等信息可以被任意人员获取，且signature部分的验证算法是通过header里的信息来决定的。因此攻击者可以修改头部信息alt: none，因此服务器可能会将未经验证的signature当做已经验证过且有效的token。这样任何人就可以随意访问我们的系统。但是，现在大多数库都对此有一个防御机制：若提供了secret key，则那些设置为alt: none的令牌就无效，故而解决。</li>
+<li>令牌机制的关键漏洞在于服务端的验证算法取决于令牌里的header信息。如果令牌采用RS256算法进行签名，一旦攻击者获得public key，则可以用如下方式来伪造令牌：将令牌的算法设置为HS256，并将secret key设置为RS256算法的签名公钥，这样就可以鱼目混珠啦。如下图所示。但这种方式理论上是这样，实际上的结果并不如此，而是返回invalid algorithm的错误。若有大神求解答。针对此种错误，jsonwebtoken已经给出了相应的解决方案，服务端在验证时可以指定签名算法的类型，因此可以避免伪造令牌。</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> fs = <span class="built_in">require</span>(<span class="string">'fs'</span>);</div><div class="line"><span class="keyword">var</span> jwt = <span class="built_in">require</span>(<span class="string">'jsonwebtoken'</span>);</div><div class="line"><span class="keyword">var</span> cert_pub = fs.readFileSync(__dirname + <span class="string">'/rsa-public-key.pem'</span>);</div><div class="line"></div><div class="line"><span class="keyword">var</span> tokenPayload = &#123;</div><div class="line">    <span class="attr">foo</span>: <span class="string">"bar"</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">var</span> forgedToken = jwt.sign(tokenPayload,  cert_pub, &#123; <span class="attr">algorithm</span>: <span class="string">'HS256'</span> &#125;);</div><div class="line"></div><div class="line">jwt.verify(forgedToken, cert_pub, <span class="function"><span class="keyword">function</span>(<span class="params">err,decoded</span>)</span>&#123;</div><div class="line">    <span class="keyword">if</span> (err) &#123;</div><div class="line">        <span class="built_in">console</span>.error(err);</div><div class="line">    &#125; <span class="keyword">else</span> &#123;</div><div class="line">        <span class="built_in">console</span>.log(decoded);</div><div class="line">    &#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
 
       
     </div>
@@ -380,6 +403,12 @@
     </div>
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/NodeJS/" rel="tag"># NodeJS</a>
+          
+        </div>
       
 
       
@@ -481,7 +510,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-count">5</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -492,7 +521,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-count">9</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -547,7 +576,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#浅谈令牌原理及漏洞分析"><span class="nav-number">1.</span> <span class="nav-text">浅谈令牌原理及漏洞分析</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基本概念"><span class="nav-number">1.0.1.</span> <span class="nav-text">基本概念</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#token"><span class="nav-number">1.0.1.0.1.</span> <span class="nav-text">token</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#header"><span class="nav-number">1.0.1.0.2.</span> <span class="nav-text">header</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#payload"><span class="nav-number">1.0.1.0.3.</span> <span class="nav-text">payload</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#signature"><span class="nav-number">1.0.1.0.4.</span> <span class="nav-text">signature</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#令牌原理"><span class="nav-number">1.0.2.</span> <span class="nav-text">令牌原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#关键漏洞"><span class="nav-number">1.0.3.</span> <span class="nav-text">关键漏洞</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#基本概念"><span class="nav-number">1.</span> <span class="nav-text">基本概念</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#token"><span class="nav-number">1.0.1.</span> <span class="nav-text">token</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#header"><span class="nav-number">1.0.2.</span> <span class="nav-text">header</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#payload"><span class="nav-number">1.0.3.</span> <span class="nav-text">payload</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#signature"><span class="nav-number">1.0.4.</span> <span class="nav-text">signature</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#令牌原理"><span class="nav-number">2.</span> <span class="nav-text">令牌原理</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#关键漏洞"><span class="nav-number">3.</span> <span class="nav-text">关键漏洞</span></a></li></ol></div>
             
 
           </div>
