@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="DOM,JavaScript," />
+  <meta name="keywords" content="express," />
 
 
 
@@ -87,20 +87,17 @@
 
 
 
-<meta name="description" content="看到《DOM编程艺术》第7章，有几点值得记一下。 document.write 与 innerHTMLdocument.write是一个古老的方法，它在W3C上定义了两种用途：一是在文档中输出HTML，另一种是在调用该方法的的窗口之外的窗口、框架中产生新文档（记得用close()关闭）。看似document.write对产生一个新的文档或窗口这样的用途很有意义，但书上说：document.writ">
-<meta name="keywords" content="DOM,JavaScript">
+<meta name="description" content="本系统所用技术包括：jade模板（加强的html），bootstrap（css样式集），express（Web应用框架），js，nodejs，mysql，token验证等。 GitHub地址：https://github.com/qingywen/DEMO/tree/master/Greeni 基本功能如下：  初次登录该系统首页可浏览公共页面并进行注册。 成为注册用户后可登录个人中心，关闭浏览器">
+<meta name="keywords" content="express">
 <meta property="og:type" content="article">
-<meta property="og:title" content="document.write与innerHTML">
-<meta property="og:url" content="http://yoursite.com/2017/05/09/js-dom-dynamicTag/index.html">
+<meta property="og:title" content="Web应用初体验——登录登出验证系统">
+<meta property="og:url" content="http://yoursite.com/2017/07/17/express-greeni/index.html">
 <meta property="og:site_name" content="青菜不是葵花">
-<meta property="og:description" content="看到《DOM编程艺术》第7章，有几点值得记一下。 document.write 与 innerHTMLdocument.write是一个古老的方法，它在W3C上定义了两种用途：一是在文档中输出HTML，另一种是在调用该方法的的窗口之外的窗口、框架中产生新文档（记得用close()关闭）。看似document.write对产生一个新的文档或窗口这样的用途很有意义，但书上说：document.writ">
-<meta property="og:image" content="http://yoursite.com/2017/05/09/js-dom-dynamicTag/document.PNG">
-<meta property="og:image" content="http://yoursite.com/2017/05/09/js-dom-dynamicTag/innerHTML.PNG">
-<meta property="og:updated_time" content="2017-05-24T01:41:18.020Z">
+<meta property="og:description" content="本系统所用技术包括：jade模板（加强的html），bootstrap（css样式集），express（Web应用框架），js，nodejs，mysql，token验证等。 GitHub地址：https://github.com/qingywen/DEMO/tree/master/Greeni 基本功能如下：  初次登录该系统首页可浏览公共页面并进行注册。 成为注册用户后可登录个人中心，关闭浏览器">
+<meta property="og:updated_time" content="2017-07-17T07:48:12.477Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="document.write与innerHTML">
-<meta name="twitter:description" content="看到《DOM编程艺术》第7章，有几点值得记一下。 document.write 与 innerHTMLdocument.write是一个古老的方法，它在W3C上定义了两种用途：一是在文档中输出HTML，另一种是在调用该方法的的窗口之外的窗口、框架中产生新文档（记得用close()关闭）。看似document.write对产生一个新的文档或窗口这样的用途很有意义，但书上说：document.writ">
-<meta name="twitter:image" content="http://yoursite.com/2017/05/09/js-dom-dynamicTag/document.PNG">
+<meta name="twitter:title" content="Web应用初体验——登录登出验证系统">
+<meta name="twitter:description" content="本系统所用技术包括：jade模板（加强的html），bootstrap（css样式集），express（Web应用框架），js，nodejs，mysql，token验证等。 GitHub地址：https://github.com/qingywen/DEMO/tree/master/Greeni 基本功能如下：  初次登录该系统首页可浏览公共页面并进行注册。 成为注册用户后可登录个人中心，关闭浏览器">
 
 
 
@@ -128,13 +125,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/05/09/js-dom-dynamicTag/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/07/17/express-greeni/"/>
 
 
 
 
 
-  <title> document.write与innerHTML | 青菜不是葵花 </title>
+  <title> Web应用初体验——登录登出验证系统 | 青菜不是葵花 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -273,7 +270,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/09/js-dom-dynamicTag/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/17/express-greeni/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="青菜">
@@ -294,7 +291,7 @@
             
             
               
-                document.write与innerHTML
+                Web应用初体验——登录登出验证系统
               
             
           </h1>
@@ -309,8 +306,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-09T22:53:31+08:00">
-                2017-05-09
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-17T23:43:14+08:00">
+                2017-07-17
               </time>
             
 
@@ -332,8 +329,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/JavaScript/" itemprop="url" rel="index">
-                    <span itemprop="name">JavaScript</span>
+                  <a href="/categories/express/" itemprop="url" rel="index">
+                    <span itemprop="name">express</span>
                   </a>
                 </span>
 
@@ -367,23 +364,108 @@
       
 
       
-        <p>看到《DOM编程艺术》第7章，有几点值得记一下。</p>
-<h3 id="document-write-与-innerHTML"><a href="#document-write-与-innerHTML" class="headerlink" title="document.write 与 innerHTML"></a>document.write 与 innerHTML</h3><p>document.write是一个古老的方法，它在W3C上定义了两种用途：一是在文档中输出HTML，另一种是在调用该方法的的窗口之外的窗口、框架中产生新文档（记得用close()关闭）。看似document.write对产生一个新的文档或窗口这样的用途很有意义，但书上说：<blockquote><p>document.write的最大缺点是它违背了“行为与样式分离的原则”。即使把document.write语句挪到外部函数里，也还是需要在标记的<code>&lt;body&gt;</code>部分使用<code>&lt;script&gt;</code>标签才能调用那个函数。</p>
-</blockquote>厮以为作者在这里讲的并不清楚，document.write违背了行为与表现分离的原则并不在于函数需要放在外部引用还是内部引用，而是因为当我们写了一段document.write来产生一个HTML文档时，这个新文档的结构hin可能是这个样子的：<br><img src="/2017/05/09/js-dom-dynamicTag/document.PNG" alt="document.PNG" title="">如你所见，<code>&lt;script&gt;</code>标签在<code>&lt;p&gt;</code>标签前面，也就是说document.write只能在现有文档结构的最后添加元素，因此只要使用document.write,则必定有HTML标签在<code>&lt;script&gt;</code>标签之后。这样的标记顺序十分的混乱，且里面的<code>&lt;script&gt;</code>标签也不是我们想要的，这样让我对document.write的好感度一下降低零点。</p>
-<p>反观用innerHTML来实现这个输出文档的功能，其输出文档结构如下：<br><img src="/2017/05/09/js-dom-dynamicTag/innerHTML.PNG" alt="innerHTML.PNG" title="">Look!这才是我们想要的行为与表现分离的文档结构！虽然innerHTML并不是DOM标准的组部分，但是已经包含在HTML5的规范中。几乎所有的浏览器都支持该属性，绝大多数情况下可以完美取代document.write方法。书上有一个很恰当的比方，“innerHTML就像一把大锤，而DOM则是一把手术刀”，我们可以用innerHTML大刀阔斧的直接插入网页内容，但是若想获取或修改DOM节点的属性等，我们还得需要DOM里更精确的方法如createElement与createTextNode等。</p>
-<p>总结一下document.write与innerHTML的区别：</p>
-<ul>
-<li>write是document对象的一个方法，直接写入到页面的内容流，如果之前没有调用document.open，浏览器会自动调用document.open。每次写完关闭之后重新调用该函数会导致页面被重写。重写内容会被添加到<code>&lt;script&gt;</code>元素后，破坏结构和行为分离的原则。</li>
-<li>innerHTML则是DOM页面元素的一个属性，代表该元素的html内容，可以精确到单个元素来进行修改，良好的而体现了结构和行为分离的原则。</li>
-</ul>
-<h3 id="重回图片库：结构样式分离升级版"><a href="#重回图片库：结构样式分离升级版" class="headerlink" title="重回图片库：结构样式分离升级版"></a>重回图片库：结构样式分离升级版</h3><p><blockquote><p>当有一段标记仅是为脚本服务的，即为了让DOM脚本处理它们，那么用DOM方法来创建它们才是最合适的选择</p>
-</blockquote>行为与结构分离的三层逐级进化概念：</p>
+        <p>本系统所用技术包括：jade模板（加强的html），bootstrap（css样式集），express（Web应用框架），js，nodejs，mysql，token验证等。</p>
+<p>GitHub地址：<a href="https://github.com/qingywen/DEMO/tree/master/Greeni" target="_blank" rel="external">https://github.com/qingywen/DEMO/tree/master/Greeni</a></p>
+<p>基本功能如下：</p>
 <ol>
-<li>给HTML文档引用外部脚本。</li>
-<li>在HTML里设置挂钩，在外部js文件中给DOM节点添加事件，而不是在节点中添加类似<code>onclick=“func()”</code>这样的属性。</li>
-<li>只是为了DOM操作而存在的DOM节点应该动态创建，而不是直接出现在标记里。</li>
+<li>初次登录该系统首页可浏览公共页面并进行注册。</li>
+<li>成为注册用户后可登录个人中心，关闭浏览器仍保持一天之内可随时登陆。</li>
+<li>登录后可注销，此后则只能浏览公共页面。</li>
+<li>登录一天后或者注销后，若访问个人中心则自动引导到登录页面。</li>
 </ol>
-<h3 id="渐进增强与Ajax"><a href="#渐进增强与Ajax" class="headerlink" title="渐进增强与Ajax"></a>渐进增强与Ajax</h3><p>Ajax是一种用来与服务器异步交互的技术，其核心为XMLHttpRequest，很多书中都会大谈特谈Ajax的方便之处，但《DOM编程》显然为一股清澈之流，作者认为能通过Ajax实现的应用一定也可以通过非Ajax技术来实现，且构建Ajax网站最好的方法是先构建一个常规的网站，再去Hijax它。这个观点跟平稳退化有着相似之处。十分欣赏作者在网站构建方面的缜密思维，总会考虑到如果这个方法可用，则怎么去做，如果这个方法不可用，再怎么去做。从不假设用户的行为与环境，而是从最基本的条件出发，这样使得少量的特殊用户也能很好的浏览我们的站点。</p>
+<h2 id="step1"><a href="#step1" class="headerlink" title="step1"></a>step1</h2><p>先写前端界面，包括index.html(公共页面)，login.html(登录页面)，signup.html(注册页面)，my.html(个人中心)，这里用到了bootstrap的示例页面signin，carousel和dashboard的页面结构和样式。</p>
+<p>也许会有人跟我一样刚开始接触bootstrap并不知从何用起，以下做个简短说明：bootstrap是一个css样式集，用的好可以为你的项目锦上添花，用不好反倒累赘，因此还需好好琢磨。了解bootstrap的菜鸟教程可以浏览<a href="http://www.runoob.com/bootstrap/bootstrap-tutorial.html" target="_blank" rel="external">菜鸟教程</a>。实际上，bootstrap3的<a href="http://v3.bootcss.com/" target="_blank" rel="external">中文官网</a>已经讲解的非常详尽。不过仍建议先阅读菜鸟教程进行热身。</p>
+<p>页面js主要功能为表单提交，提交前先进行简单的验证，再序列化表单，接着用ajax提交到服务器，最后关闭表单的默认提交功能。</p>
+<h2 id="step2"><a href="#step2" class="headerlink" title="step2"></a>step2</h2><p>前端界面搭建好后，我们来新建一个数据库，数据库表中只有一个users表，结构如下：</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Null</th>
+<th>Key</th>
+<th>Default</th>
+<th>Extra</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>P_Id</td>
+<td>int(11)</td>
+<td>No</td>
+<td>PRI</td>
+<td>NULL</td>
+<td>auto_increment</td>
+</tr>
+<tr>
+<td>email</td>
+<td>varchar(255)</td>
+<td>NO</td>
+<td>UNI</td>
+<td>NULL</td>
+<td></td>
+</tr>
+<tr>
+<td>password</td>
+<td>varchar(255)</td>
+<td>NO</td>
+<td></td>
+<td>NULL</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>现在表数据如下：</p>
+<table>
+<thead>
+<tr>
+<th>P_Id</th>
+<th>email</th>
+<th>password</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>1195259521@qq.com</td>
+<td>123</td>
+</tr>
+<tr>
+<td>9</td>
+<td>qingywen@gmail.com</td>
+<td>123</td>
+</tr>
+<tr>
+<td>12</td>
+<td>wenwu@gmai.com</td>
+<td>123</td>
+</tr>
+<tr>
+<td>14</td>
+<td>123@qq.com</td>
+<td>123</td>
+</tr>
+</tbody>
+</table>
+<p>数据库导出文件为greeni.sql，在本地数据库中将sql文件导入新建数据库greeni即可。</p>
+<h2 id="step3"><a href="#step3" class="headerlink" title="step3"></a>step3</h2><p>前端、数据库搭建好后，我们即可开始整个应用的系统搭建，通过后台逻辑将前端和数据库连接起来。</p>
+<p>这里在一个新文件夹中用<code>express</code>进行项目初始化，当然前提是本地用npm安装了express。接着在package.json中加入db、ejs、jsonwebtoken三个模块，然后用<code>cnpm install</code>进行安装。</p>
+<p>这里我们需要将app.js文件中默认的渲染引擎从jade改为ejs。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// view engine setup</span></div><div class="line">app.set(<span class="string">'views'</span>, path.join(__dirname, <span class="string">'views'</span>));</div><div class="line">pp.engine(<span class="string">'.html'</span>, <span class="built_in">require</span>(<span class="string">'ejs'</span>).__express);</div><div class="line">app.set(<span class="string">'view engine'</span>, <span class="string">'jade'</span>);</div></pre></td></tr></table></figure></p>
+<p>修改routes文件夹下index.js、my.js的路由定向和事件句柄，此时要用到数据库，因此新建db文件夹，在db目录下新建DBConfig.js和SQL.js，分别用作数据库的连接配置文件和SQL语句模块。</p>
+<p>在写登录验证的逻辑时，我们根据用户邮箱用jsonwebtoken随机生成一个令牌，并发送用户，用户在cookie中保存此令牌，在下次请求私有资源时则不必明文发送密码，而是在发送请求时随着cookie自动将令牌发送给服务器，服务器收到令牌验证成功后则返回用户所请求的资源，否则令牌有可能被恶意更改，则拒绝请求。</p>
+<p>此时系统搭建完毕，我么可以用<code>npm start</code>来启动项目，注意bin文件夹写的端口号为8000，因此访问地址为：127.0.0.1:8000。</p>
+<h2 id="step4"><a href="#step4" class="headerlink" title="step4"></a>step4</h2><p>最后我们想做一个小优化，如果每个用户登录到个人中心的页面都一样的话，这个个人中心恐怕是个假个人中心，因此我们需要对不同的用户请求返回一样的页面结构但是不同的用户信息。为求简易，这里我们只对每个用户返回各自的email，并添加到页面上。</p>
+<p>因为页面首先需要在服务器上渲染才能返回给客户端，最经济的思路当然是在服务端渲染出不同的页面再返回给客户端。而html并没有变量的功能，因此我们使用jade模板（现更名为pug，但jade模块仍有效）来代替html。jade是一个非常高效的模板引擎，提供了变量、for循环等功能。有一个非常好的<a href="https://naltatis.github.io/jade-syntax-docs/" target="_blank" rel="external">jade语法学习网站</a>安利给大家。这里我们需要将之前的html转为jade，手动改编太麻烦，用这个<a href="http://www.html2jade.org/" target="_blank" rel="external">html2jade</a>的网站来转化吧。</p>
+<p>得到jade格式的前端文件，我们修改app.js的模板引擎设置，将ejs引擎改回默认的jade引擎：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// view engine setup</span></div><div class="line">app.set(<span class="string">'views'</span>, path.join(__dirname, <span class="string">'views'</span>));</div><div class="line">app.set(<span class="string">'view engine'</span>, <span class="string">'jade'</span>);</div></pre></td></tr></table></figure></p>
+<p>在routes下的my.js中，返回个人中心页面同时，返回用户的email：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">res.render(<span class="string">'my'</span>,&#123;<span class="attr">email</span>: decoded.email&#125;);</div></pre></td></tr></table></figure></p>
+<p>修改views文件夹下my.jade文件中的标题，用来接收服务器传送来的email变量：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">a.navbar-brand(href=&apos;#&apos;) #&#123;email&#125;</div></pre></td></tr></table></figure></p>
+<p>此后大功告成，每个用户登陆后访问个人中心的页面，其页面标题都是自己用来注册的email，因此此个人中心成立。</p>
+<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><ol>
+<li>表单序列化方法<code>serialize()</code>，阻止表单默认提交方式<code>preventDefault()</code>，以及设置cookie的<code>CookieUtil.set()</code>均来自《JS高级程序设计》。</li>
+<li>登录后通过令牌验证来避免密码泄露用到<code>jwt.sign() jwt.verify()</code>，建议细看jsonwebtoken包下的README.md，讲解很详细。</li>
+<li>README.md文件是个好东西，许多网上的经验贴都没有官方使用文档讲的简单易懂。sublime有许多markdown实时阅览插件很方便，此<a href="http://www.jianshu.com/p/335b7d1be39e" target="_blank" rel="external">博主</a>有分享。</li>
+<li>源代码是最后版本，因此前文所述中间过程可能不能详尽体现，但可以按照上述方式进行此系统的构建。这篇记录不是使用说明，仅作一个Guide，有问题Google和百度并行解决。若解决不了可联系数据库中P_Id为1的邮箱，我会尽快为你回复。</li>
+</ol>
 
       
     </div>
@@ -413,9 +495,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/DOM/" rel="tag"># DOM</a>
-          
-            <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
+            <a href="/tags/express/" rel="tag"># express</a>
           
         </div>
       
@@ -428,18 +508,14 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/05/15/opencv-pdb/" rel="next" title="opencv+VS配置问题">
-                <i class="fa fa-chevron-left"></i> opencv+VS配置问题
-              </a>
-            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/05/08/js-onload/" rel="prev" title="onload事件的傲娇处理">
-                onload事件的傲娇处理 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/07/12/nodejs-token/" rel="prev" title="浅谈令牌原理及漏洞分析">
+                浅谈令牌原理及漏洞分析 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -589,7 +665,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#document-write-与-innerHTML"><span class="nav-number">1.</span> <span class="nav-text">document.write 与 innerHTML</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#重回图片库：结构样式分离升级版"><span class="nav-number">2.</span> <span class="nav-text">重回图片库：结构样式分离升级版</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#渐进增强与Ajax"><span class="nav-number">3.</span> <span class="nav-text">渐进增强与Ajax</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#step1"><span class="nav-number">1.</span> <span class="nav-text">step1</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#step2"><span class="nav-number">2.</span> <span class="nav-text">step2</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#step3"><span class="nav-number">3.</span> <span class="nav-text">step3</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#step4"><span class="nav-number">4.</span> <span class="nav-text">step4</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#其他"><span class="nav-number">5.</span> <span class="nav-text">其他</span></a></li></ol></div>
             
 
           </div>

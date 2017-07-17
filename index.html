@@ -270,6 +270,250 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/17/express-greeni/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="青菜">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="青菜不是葵花">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/07/17/express-greeni/" itemprop="url">
+                  Web应用初体验——登录登出验证系统
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-17T15:43:14Z">
+                2017-07-17
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/express/" itemprop="url" rel="index">
+                    <span itemprop="name">express</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>本系统所用技术包括：jade模板（加强的html），bootstrap（css样式集），express（Web应用框架），js，nodejs，mysql，token验证等。</p>
+<p>GitHub地址：<a href="https://github.com/qingywen/DEMO/tree/master/Greeni" target="_blank" rel="external">https://github.com/qingywen/DEMO/tree/master/Greeni</a></p>
+<p>基本功能如下：</p>
+<ol>
+<li>初次登录该系统首页可浏览公共页面并进行注册。</li>
+<li>成为注册用户后可登录个人中心，关闭浏览器仍保持一天之内可随时登陆。</li>
+<li>登录后可注销，此后则只能浏览公共页面。</li>
+<li>登录一天后或者注销后，若访问个人中心则自动引导到登录页面。</li>
+</ol>
+<h2 id="step1"><a href="#step1" class="headerlink" title="step1"></a>step1</h2><p>先写前端界面，包括index.html(公共页面)，login.html(登录页面)，signup.html(注册页面)，my.html(个人中心)，这里用到了bootstrap的示例页面signin，carousel和dashboard的页面结构和样式。</p>
+<p>也许会有人跟我一样刚开始接触bootstrap并不知从何用起，以下做个简短说明：bootstrap是一个css样式集，用的好可以为你的项目锦上添花，用不好反倒累赘，因此还需好好琢磨。了解bootstrap的菜鸟教程可以浏览<a href="http://www.runoob.com/bootstrap/bootstrap-tutorial.html" target="_blank" rel="external">菜鸟教程</a>。实际上，bootstrap3的<a href="http://v3.bootcss.com/" target="_blank" rel="external">中文官网</a>已经讲解的非常详尽。不过仍建议先阅读菜鸟教程进行热身。</p>
+<p>页面js主要功能为表单提交，提交前先进行简单的验证，再序列化表单，接着用ajax提交到服务器，最后关闭表单的默认提交功能。</p>
+<h2 id="step2"><a href="#step2" class="headerlink" title="step2"></a>step2</h2><p>前端界面搭建好后，我们来新建一个数据库，数据库表中只有一个users表，结构如下：</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Null</th>
+<th>Key</th>
+<th>Default</th>
+<th>Extra</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>P_Id</td>
+<td>int(11)</td>
+<td>No</td>
+<td>PRI</td>
+<td>NULL</td>
+<td>auto_increment</td>
+</tr>
+<tr>
+<td>email</td>
+<td>varchar(255)</td>
+<td>NO</td>
+<td>UNI</td>
+<td>NULL</td>
+<td></td>
+</tr>
+<tr>
+<td>password</td>
+<td>varchar(255)</td>
+<td>NO</td>
+<td></td>
+<td>NULL</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>现在表数据如下：</p>
+<table>
+<thead>
+<tr>
+<th>P_Id</th>
+<th>email</th>
+<th>password</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>1195259521@qq.com</td>
+<td>123</td>
+</tr>
+<tr>
+<td>9</td>
+<td>qingywen@gmail.com</td>
+<td>123</td>
+</tr>
+<tr>
+<td>12</td>
+<td>wenwu@gmai.com</td>
+<td>123</td>
+</tr>
+<tr>
+<td>14</td>
+<td>123@qq.com</td>
+<td>123</td>
+</tr>
+</tbody>
+</table>
+<p>数据库导出文件为greeni.sql，在本地数据库中将sql文件导入新建数据库greeni即可。</p>
+<h2 id="step3"><a href="#step3" class="headerlink" title="step3"></a>step3</h2><p>前端、数据库搭建好后，我们即可开始整个应用的系统搭建，通过后台逻辑将前端和数据库连接起来。</p>
+<p>这里在一个新文件夹中用<code>express</code>进行项目初始化，当然前提是本地用npm安装了express。接着在package.json中加入db、ejs、jsonwebtoken三个模块，然后用<code>cnpm install</code>进行安装。</p>
+<p>这里我们需要将app.js文件中默认的渲染引擎从jade改为ejs。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// view engine setup</span></div><div class="line">app.set(<span class="string">'views'</span>, path.join(__dirname, <span class="string">'views'</span>));</div><div class="line">pp.engine(<span class="string">'.html'</span>, <span class="built_in">require</span>(<span class="string">'ejs'</span>).__express);</div><div class="line">app.set(<span class="string">'view engine'</span>, <span class="string">'jade'</span>);</div></pre></td></tr></table></figure></p>
+<p>修改routes文件夹下index.js、my.js的路由定向和事件句柄，此时要用到数据库，因此新建db文件夹，在db目录下新建DBConfig.js和SQL.js，分别用作数据库的连接配置文件和SQL语句模块。</p>
+<p>在写登录验证的逻辑时，我们根据用户邮箱用jsonwebtoken随机生成一个令牌，并发送用户，用户在cookie中保存此令牌，在下次请求私有资源时则不必明文发送密码，而是在发送请求时随着cookie自动将令牌发送给服务器，服务器收到令牌验证成功后则返回用户所请求的资源，否则令牌有可能被恶意更改，则拒绝请求。</p>
+<p>此时系统搭建完毕，我么可以用<code>npm start</code>来启动项目，注意bin文件夹写的端口号为8000，因此访问地址为：127.0.0.1:8000。</p>
+<h2 id="step4"><a href="#step4" class="headerlink" title="step4"></a>step4</h2><p>最后我们想做一个小优化，如果每个用户登录到个人中心的页面都一样的话，这个个人中心恐怕是个假个人中心，因此我们需要对不同的用户请求返回一样的页面结构但是不同的用户信息。为求简易，这里我们只对每个用户返回各自的email，并添加到页面上。</p>
+<p>因为页面首先需要在服务器上渲染才能返回给客户端，最经济的思路当然是在服务端渲染出不同的页面再返回给客户端。而html并没有变量的功能，因此我们使用jade模板（现更名为pug，但jade模块仍有效）来代替html。jade是一个非常高效的模板引擎，提供了变量、for循环等功能。有一个非常好的<a href="https://naltatis.github.io/jade-syntax-docs/" target="_blank" rel="external">jade语法学习网站</a>安利给大家。这里我们需要将之前的html转为jade，手动改编太麻烦，用这个<a href="http://www.html2jade.org/" target="_blank" rel="external">html2jade</a>的网站来转化吧。</p>
+<p>得到jade格式的前端文件，我们修改app.js的模板引擎设置，将ejs引擎改回默认的jade引擎：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// view engine setup</span></div><div class="line">app.set(<span class="string">'views'</span>, path.join(__dirname, <span class="string">'views'</span>));</div><div class="line">app.set(<span class="string">'view engine'</span>, <span class="string">'jade'</span>);</div></pre></td></tr></table></figure></p>
+<p>在routes下的my.js中，返回个人中心页面同时，返回用户的email：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">res.render(<span class="string">'my'</span>,&#123;<span class="attr">email</span>: decoded.email&#125;);</div></pre></td></tr></table></figure></p>
+<p>修改views文件夹下my.jade文件中的标题，用来接收服务器传送来的email变量：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">a.navbar-brand(href=&apos;#&apos;) #&#123;email&#125;</div></pre></td></tr></table></figure></p>
+<p>此后大功告成，每个用户登陆后访问个人中心的页面，其页面标题都是自己用来注册的email，因此此个人中心成立。</p>
+<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><ol>
+<li>表单序列化方法<code>serialize()</code>，阻止表单默认提交方式<code>preventDefault()</code>，以及设置cookie的<code>CookieUtil.set()</code>均来自《JS高级程序设计》。</li>
+<li>登录后通过令牌验证来避免密码泄露用到<code>jwt.sign() jwt.verify()</code>，建议细看jsonwebtoken包下的README.md，讲解很详细。</li>
+<li>README.md文件是个好东西，许多网上的经验贴都没有官方使用文档讲的简单易懂。sublime有许多markdown实时阅览插件很方便，此<a href="http://www.jianshu.com/p/335b7d1be39e" target="_blank" rel="external">博主</a>有分享。</li>
+<li>源代码是最后版本，因此前文所述中间过程可能不能详尽体现，但可以按照上述方式进行此系统的构建。这篇记录不是使用说明，仅作一个Guide，有问题Google和百度并行解决。若解决不了可联系数据库中P_Id为1的邮箱，我会尽快为你回复。</li>
+</ol>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/12/nodejs-token/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1581,158 +1825,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/08/js-dom-principle/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="青菜">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="青菜不是葵花">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/05/08/js-dom-principle/" itemprop="url">
-                  DOM 编程四大原则
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-07T16:41:26Z">
-                2017-05-07
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/JavaScript/" itemprop="url" rel="index">
-                    <span itemprop="name">JavaScript</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>《Javascript DOM 编程艺术》中第五章有四个概念讲述的非常好，分别是平稳退化、分离JavaScript、向后兼容、性能考虑。这也是很多野生前端选手可能忽视的地方。</p>
-<h3 id="平稳退化"><a href="#平稳退化" class="headerlink" title="平稳退化"></a>平稳退化</h3><p>让访问者在他们的浏览器不支持JavaScript的情况下仍能顺利的访问你的网站，这就是平稳退化的思想。<br>例如，当我们要实现一个弹窗效果可能会写到：<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"javascript:popUp('http://www.example.com/')"</span>&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span></div><div class="line">// <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span> <span class="attr">onclick</span>=<span class="string">"popUp('http://www.example.com/')"</span>&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span></div></pre></td></tr></table></figure><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">popUp</span>(<span class="params">objectUrl</span>) </span>&#123;</div><div class="line">	<span class="built_in">window</span>.open(objectUrl,<span class="string">'popup'</span>,<span class="string">'width=320,height=480'</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>但有两种情况使得网页的可访问性降低：一是当用户禁用JavaScript时,点击无效；二是大多数搜索机器人无法理解js代码，它们在搜索引擎上的排名就会降低。因此平稳退化的目的就是当Javascript无效时，仍能让我们的网站显示给用户有效的信息。这里实现平稳退化的方式如下：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"http://www.example.com/"</span> <span class="attr">onclick</span>=<span class="string">"popUp(this.href);return false;"</span>&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span></div></pre></td></tr></table></figure><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">popUp</span>(<span class="params">objectUrl</span>) </span>&#123;</div><div class="line">	<span class="built_in">window</span>.open(objectUrl,<span class="string">'popup'</span>,<span class="string">'width=320,height=480'</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<h3 id="分离JavaScript"><a href="#分离JavaScript" class="headerlink" title="分离JavaScript"></a>分离JavaScript</h3><p>在HTML文档里使用onclick之类的属性较容易出现问题，这里我们将使用类似CSS的挂钩机制来将HTML和JavaScript分离开来，这样将使得我们的网页健壮得多。实现方式如下：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"http://www.example.com/"</span> <span class="attr">class</span>=<span class="string">"popup"</span>&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span></div></pre></td></tr></table></figure><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">window</span>.onload = prepareLinks;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">prepareLinks</span>(<span class="params"></span>) </span>&#123;</div><div class="line">	<span class="keyword">var</span> links = <span class="built_in">document</span>.getElementsByTagName(<span class="string">'a'</span>);</div><div class="line">	<span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; links.length; i++) &#123;</div><div class="line">		<span class="keyword">if</span> (links[i].className == <span class="string">"popup"</span>) &#123;</div><div class="line">			links[i].onclick = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">				popUp(<span class="keyword">this</span>.href);</div><div class="line">				<span class="keyword">return</span> <span class="literal">false</span>;</div><div class="line">			&#125;</div><div class="line">		&#125;			</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">popUp</span>(<span class="params">objectUrl</span>) </span>&#123;</div><div class="line">	<span class="built_in">window</span>.open(objectUrl, <span class="string">"pop"</span>, <span class="string">"width=320,height=480"</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>这里的基本思想是给每个需要弹窗的a标签加上样式popup，然后再循环遍历文档里所有具有该样式的a标签，并给其添加上相应的点击事件，并返回false，使得href值无效。这里有一点要注意的是需要在文档加载完成之后再遍历所有的a标签，因此需要用到window的onload方法。这样的实现思想就比较好的演示了如何将HTML和JavaScript分离开来。</p>
-<h3 id="向后兼容"><a href="#向后兼容" class="headerlink" title="向后兼容"></a>向后兼容</h3><p>考虑到部分老的浏览器对JavaScript支持的并不是很好，我们需要用到对象检测的方法来给我们的浏览器设置门槛。一般的思想是：<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> (condition) &#123; statements &#125; </div><div class="line">&lt;!-- 例如 --&gt;</div><div class="line"><span class="keyword">if</span> (<span class="built_in">document</span>.getElementById(<span class="string">'pop'</span>)) &#123;</div><div class="line">	<span class="keyword">var</span> pop = <span class="built_in">document</span>.getElementById(<span class="string">'pop'</span>);</div><div class="line">	...</div><div class="line">&#125;</div></pre></td></tr></table></figure>也就是说如果浏览器支持某行为，我们则使用某段代码，但这样会给我们的方法添加很多碍于阅读的花括号。因此我们不妨换一个思维：<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> (!condition) &#123; <span class="keyword">return</span> <span class="literal">false</span>; &#125; </div></pre></td></tr></table></figure>即在使用的方法前进行否定判断：“你若不支持我，我就离开”。这是一种更为简洁的思路，在使用相应的api之前进行对象检测，检测过关则进行下一步，不过关则离开。其代码也更加清晰。</p>
-<h3 id="性能考虑"><a href="#性能考虑" class="headerlink" title="性能考虑"></a>性能考虑</h3><p>基本的性能提升策略有以下几种：</p>
-<ul>
-<li>尽量减少访问DOM和尽量减少标记</li>
-<li>合并和放置脚本</li>
-<li>压缩脚本</li>
-</ul>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1782,7 +1874,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">16</span>
+                <span class="site-state-item-count">17</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -1793,7 +1885,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-count">6</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -1804,7 +1896,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-count">10</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
