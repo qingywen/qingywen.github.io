@@ -87,17 +87,17 @@
 
 
 
-<meta name="description" content="display: none元素消失，不占据页面空间。会导致页面的重排和重绘。无法获取鼠标事件。 visibility: hidden元素消失，占据页面空间。导致页面的重绘。无法获取鼠标事件。 opacity: 0元素没有消失，只是看不见。导致页面的重绘。可获取鼠标事件。 position: reletive; left: -10000px;元素定位在可视区域之外。导致该元素的重排和重绘。无法获取鼠">
+<meta name="description" content="各类高度 包含选项     height content   clientHeight content+padding   offsetHeight content+padding+border+scroll   scrollHeight (子元素高度 &amp;lt;= content)? clientHeight:(子元素高度 + padding)    注意：当我们按照如下设置：1234div">
 <meta name="keywords" content="CSS">
 <meta property="og:type" content="article">
-<meta property="og:title" content="CSS的几种消失机制">
-<meta property="og:url" content="http://yoursite.com/2017/05/16/css-disappear/index.html">
+<meta property="og:title" content="CSS中的高度系列">
+<meta property="og:url" content="http://yoursite.com/2017/07/18/css-height/index.html">
 <meta property="og:site_name" content="青菜不是葵花">
-<meta property="og:description" content="display: none元素消失，不占据页面空间。会导致页面的重排和重绘。无法获取鼠标事件。 visibility: hidden元素消失，占据页面空间。导致页面的重绘。无法获取鼠标事件。 opacity: 0元素没有消失，只是看不见。导致页面的重绘。可获取鼠标事件。 position: reletive; left: -10000px;元素定位在可视区域之外。导致该元素的重排和重绘。无法获取鼠">
-<meta property="og:updated_time" content="2017-05-27T07:14:12.450Z">
+<meta property="og:description" content="各类高度 包含选项     height content   clientHeight content+padding   offsetHeight content+padding+border+scroll   scrollHeight (子元素高度 &amp;lt;= content)? clientHeight:(子元素高度 + padding)    注意：当我们按照如下设置：1234div">
+<meta property="og:updated_time" content="2017-07-18T04:08:29.635Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="CSS的几种消失机制">
-<meta name="twitter:description" content="display: none元素消失，不占据页面空间。会导致页面的重排和重绘。无法获取鼠标事件。 visibility: hidden元素消失，占据页面空间。导致页面的重绘。无法获取鼠标事件。 opacity: 0元素没有消失，只是看不见。导致页面的重绘。可获取鼠标事件。 position: reletive; left: -10000px;元素定位在可视区域之外。导致该元素的重排和重绘。无法获取鼠">
+<meta name="twitter:title" content="CSS中的高度系列">
+<meta name="twitter:description" content="各类高度 包含选项     height content   clientHeight content+padding   offsetHeight content+padding+border+scroll   scrollHeight (子元素高度 &amp;lt;= content)? clientHeight:(子元素高度 + padding)    注意：当我们按照如下设置：1234div">
 
 
 
@@ -125,13 +125,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/05/16/css-disappear/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/07/18/css-height/"/>
 
 
 
 
 
-  <title> CSS的几种消失机制 | 青菜不是葵花 </title>
+  <title> CSS中的高度系列 | 青菜不是葵花 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -270,7 +270,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/16/css-disappear/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/18/css-height/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="青菜">
@@ -291,7 +291,7 @@
             
             
               
-                CSS的几种消失机制
+                CSS中的高度系列
               
             
           </h1>
@@ -306,8 +306,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-16T00:33:28+08:00">
-                2017-05-15
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-18T19:18:07+08:00">
+                2017-07-18
               </time>
             
 
@@ -364,13 +364,34 @@
       
 
       
-        <h2 id="display-none"><a href="#display-none" class="headerlink" title="display: none"></a>display: none</h2><p>元素消失，不占据页面空间。会导致页面的重排和重绘。无法获取鼠标事件。</p>
-<h2 id="visibility-hidden"><a href="#visibility-hidden" class="headerlink" title="visibility: hidden"></a>visibility: hidden</h2><p>元素消失，占据页面空间。导致页面的重绘。无法获取鼠标事件。</p>
-<h2 id="opacity-0"><a href="#opacity-0" class="headerlink" title="opacity: 0"></a>opacity: 0</h2><p>元素没有消失，只是看不见。导致页面的重绘。可获取鼠标事件。</p>
-<h2 id="position-reletive-left-10000px"><a href="#position-reletive-left-10000px" class="headerlink" title="position: reletive; left: -10000px;"></a>position: reletive; left: -10000px;</h2><p>元素定位在可视区域之外。导致该元素的重排和重绘。无法获取鼠标事件。</p>
-<h2 id="height-0-or-width-0"><a href="#height-0-or-width-0" class="headerlink" title="height:0 or width:0"></a>height:0 or width:0</h2><p>若设置<code>overflow:hidden</code>，元素无法获取鼠标事件。若没有，元素宽高仍为0，但其子元素会撑破父元素，因此仍可以通过子元素获取到鼠标事件。</p>
-<h2 id="z-index：-1"><a href="#z-index：-1" class="headerlink" title="z-index：-1"></a>z-index：-1</h2><p>很少用到这个，不过有同学提到了，因此还是列出来。</p>
-<p>此外，这元素都可以用选择器定位到，可见仍是可进行DOM操作的元素。因此虽然无法获取鼠标事件，但可以用js来触发事件响应。例如用<code>$(&#39;.item&#39;).click()</code>即触发点击事件。</p>
+        <table>
+<thead>
+<tr>
+<th>各类高度</th>
+<th>包含选项</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>height</td>
+<td>content</td>
+</tr>
+<tr>
+<td>clientHeight</td>
+<td>content+padding</td>
+</tr>
+<tr>
+<td>offsetHeight</td>
+<td>content+padding+border+scroll</td>
+</tr>
+<tr>
+<td>scrollHeight</td>
+<td><code>(子元素高度 &lt;= content)? clientHeight:(子元素高度 + padding)</code></td>
+</tr>
+</tbody>
+</table>
+<p>注意：当我们按照如下设置：<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">div &#123;</div><div class="line">    height: 200px;</div><div class="line">    overflow-x: scroll; //始终显示滚动条</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>此时height的计算结果为183px，因为横向滚动条的高度为17px，需要减去这17px才是元素的实际高度值。</p>
 
       
     </div>
@@ -413,18 +434,14 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/05/17/js-pro-async/" rel="next" title="async和defer的区别">
-                <i class="fa fa-chevron-left"></i> async和defer的区别
-              </a>
-            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/05/15/opencv-pdb/" rel="prev" title="opencv+VS配置问题">
-                opencv+VS配置问题 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/07/17/express-greeni/" rel="prev" title="Web应用初体验——登录登出验证系统">
+                Web应用初体验——登录登出验证系统 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -472,17 +489,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview sidebar-panel">
+      <section class="site-overview sidebar-panel sidebar-panel-active">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.jpg"
@@ -564,22 +572,6 @@
 
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#display-none"><span class="nav-number">1.</span> <span class="nav-text">display: none</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#visibility-hidden"><span class="nav-number">2.</span> <span class="nav-text">visibility: hidden</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#opacity-0"><span class="nav-number">3.</span> <span class="nav-text">opacity: 0</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#position-reletive-left-10000px"><span class="nav-number">4.</span> <span class="nav-text">position: reletive; left: -10000px;</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#height-0-or-width-0"><span class="nav-number">5.</span> <span class="nav-text">height:0 or width:0</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#z-index：-1"><span class="nav-number">6.</span> <span class="nav-text">z-index：-1</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       
