@@ -270,6 +270,303 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/16/css-disappear/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="青菜">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="青菜不是葵花">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/05/16/css-disappear/" itemprop="url">
+                  CSS的几种消失机制
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-15T16:33:28Z">
+                2017-05-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/技术/" itemprop="url" rel="index">
+                    <span itemprop="name">技术</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="display-none"><a href="#display-none" class="headerlink" title="display: none"></a>display: none</h2><p>元素消失，不占据页面空间。会导致页面的重排和重绘。无法获取鼠标事件。</p>
+<h2 id="visibility-hidden"><a href="#visibility-hidden" class="headerlink" title="visibility: hidden"></a>visibility: hidden</h2><p>元素消失，占据页面空间。导致页面的重绘。无法获取鼠标事件。</p>
+<h2 id="opacity-0"><a href="#opacity-0" class="headerlink" title="opacity: 0"></a>opacity: 0</h2><p>元素没有消失，只是看不见。导致页面的重绘。可获取鼠标事件。</p>
+<h2 id="position-reletive-left-10000px"><a href="#position-reletive-left-10000px" class="headerlink" title="position: reletive; left: -10000px;"></a>position: reletive; left: -10000px;</h2><p>元素定位在可视区域之外。导致该元素的重排和重绘。无法获取鼠标事件。</p>
+<h2 id="height-0-or-width-0"><a href="#height-0-or-width-0" class="headerlink" title="height:0 or width:0"></a>height:0 or width:0</h2><p>若设置<code>overflow:hidden</code>，元素无法获取鼠标事件。若没有，元素宽高仍为0，但其子元素会撑破父元素，因此仍可以通过子元素获取到鼠标事件。</p>
+<h2 id="z-index：-1"><a href="#z-index：-1" class="headerlink" title="z-index：-1"></a>z-index：-1</h2><p>很少用到这个，不过有同学提到了，因此还是列出来。</p>
+<p>此外，这元素都可以用选择器定位到，可见仍是可进行DOM操作的元素。因此虽然无法获取鼠标事件，但可以用js来触发事件响应。例如用<code>$(&#39;.item&#39;).click()</code>即触发点击事件。</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/15/opencv-pdb/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="青菜">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="青菜不是葵花">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/05/15/opencv-pdb/" itemprop="url">
+                  opencv+VS配置问题
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-15T15:39:15Z">
+                2017-05-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/技术/" itemprop="url" rel="index">
+                    <span itemprop="name">技术</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>安装了VS2012并下载了opencv249后，按照<a href="http://www.cnblogs.com/csulennon/p/3758234.html" target="_blank" rel="external">Lennon</a>的方法配置了系统环境变量、包含目录、库目录以及附加依赖，运行程序则开始出现各种错误，记录一下。</p>
+<h3 id="找不到XXX-lib文件"><a href="#找不到XXX-lib文件" class="headerlink" title="找不到XXX.lib文件"></a>找不到XXX.lib文件</h3><p>确定附加依赖项配置文件路径及版本号正确。文件名后面的数字及版本号。</p>
+<h3 id="无法找到xxx-dll文件"><a href="#无法找到xxx-dll文件" class="headerlink" title="无法找到xxx.dll文件"></a>无法找到xxx.dll文件</h3><p>缺乏动态文件库，可以手动下载并添加到<code>C:\Windows\System32</code>目录（或报错目录）下，下载地址为<a href="https://www.dll-files.com/" target="_blank" rel="external">Download missing dll</a></p>
+<h3 id="无法打开或找不到PDB文件"><a href="#无法打开或找不到PDB文件" class="headerlink" title="无法打开或找不到PDB文件"></a>无法打开或找不到PDB文件</h3><p><img src="/2017/05/15/opencv-pdb/anwser1.PNG" alt="anwser1.PNG" title="">此图即可。</p>
+<h3 id="“wb-exe”已退出，返回值为-1-0xffffffff"><a href="#“wb-exe”已退出，返回值为-1-0xffffffff" class="headerlink" title="“wb.exe”已退出，返回值为 -1 (0xffffffff)"></a>“wb.exe”已退出，返回值为 -1 (0xffffffff)</h3><p>查看main函数有一个输入文件路径填写不正确，因此程序退出一闪而过。将文件路径填写正确后才开始正常运行。具体情况具体分析。</p>
+<h3 id="其他要注意的地方"><a href="#其他要注意的地方" class="headerlink" title="其他要注意的地方"></a>其他要注意的地方</h3><p>opencv中v10 代表适配 Visual Studio 2011<br>opencv中v11 代表适配 Visual Studio 2012<br>opencv中v14 代表适配 Visual Studio 2015<br>经验一：百度没有谷歌靠谱。<br>经验二：以后需要仔细查看报错信息而不是直接复制粘贴进行搜索。</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/09/js-dom-dynamicTag/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1512,158 +1809,11 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/10/css-opacity/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="青菜">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="青菜不是葵花">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/04/10/css-opacity/" itemprop="url">
-                  不透明度
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-10T15:03:22Z">
-                2017-04-10
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/技术/" itemprop="url" rel="index">
-                    <span itemprop="name">技术</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="opacity"><a href="#opacity" class="headerlink" title="opacity"></a>opacity</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.alert1</span> &#123;</div><div class="line">	<span class="attribute">background</span>: <span class="number">#000</span>;</div><div class="line">	<span class="attribute">opacity</span>: <span class="number">0.2</span>;</div><div class="line">	<span class="attribute">filter</span>: <span class="built_in">alpha</span>(opacity=20); <span class="comment">/*proprietary IE code*/</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>效果：容器背景不透明度为0.2，文字不透明度为0.2，其子元素皆继承其透明特性。</p>
-<h3 id="rgba"><a href="#rgba" class="headerlink" title="rgba"></a>rgba</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.alert2</span> &#123;</div><div class="line">	<span class="attribute">background-color</span>: <span class="built_in">rgba</span>(0,0,0,0.2);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>效果：容器背景色不透明度为0.2，文字不透明度为1，其子元素不继承该特性。</p>
-<h3 id="对比图"><a href="#对比图" class="headerlink" title="对比图"></a>对比图</h3><img src="/2017/04/10/css-opacity/opacity.jpg" alt="image" title="image">
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1708,7 +1858,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">19</span>
+                <span class="site-state-item-count">21</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -1730,7 +1880,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-count">12</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
