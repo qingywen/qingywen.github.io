@@ -270,6 +270,149 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/03/js-pro-delegation/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="青菜">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="青菜不是葵花">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/11/03/js-pro-delegation/" itemprop="url">
+                  事件委托的好处
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-02T21:21:22Z">
+                2017-11-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/技术/" itemprop="url" rel="index">
+                    <span itemprop="name">技术</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>当我们需要给许多DOM添加同一个类型的事件处理程序时，逐个添加事件处理程序就会有两个问题：每个事件处理函数都是对象，而对象会占用内存，因此会小号性能；二是多个DOM引用会延迟页面交互的就绪时间，降低用户体验。<br>这时可以考虑事件委托，事件委托的原理是通过给高层元素添加一个事件处理程序，利用事件的冒泡性质捕获一系列的事件，通过判断event.target来选择性的进行处理。这样就可以实现给许多DOM元素添加一类的事件处理程序。在减少了DOM引用的同时，还减少了事件处理的函数。此外，如果我们把事件添加到document节点上，那么只要页面元素可见就可以进行交互操作，而无需等待页面加载完毕。</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/09/sublime-preview/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1705,184 +1848,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/17/js-pro-ecma/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="青菜">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="青菜不是葵花">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/05/17/js-pro-ecma/" itemprop="url">
-                  js-pro-ecma
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-17T09:44:30Z">
-                2017-05-17
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/技术/" itemprop="url" rel="index">
-                    <span itemprop="name">技术</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <ul>
-<li>ECMAScript中的一切都区分大小写。</li>
-<li>ECMAScript的变量是松散类型的，可以用来保存任何类型的数据。</li>
-<li>ECMAScript的5种简单数据类型（基本数据类型）：Undefined、Null、Boolean、Number、String。还有一种复杂数据类型——Object。</li>
-<li>操作符typeof null返回object，高程中解释说“null被认为是一个空对象的引用”，但规范里说明到对象值缺失的数据，其数据类型为null。</li>
-<li>对未声明和未经初始化的变量执行typeof都会返回undefined。有一点要注意的是变量提升，即使变量已声明，解释器还是会先给变量赋值为undefined，直到上下文准备好，这个过程比较隐秘。</li>
-<li>如果定义的变量将来用于保存对象，那么最好将该变量初始化为null。</li>
-<li><code>var cat; console.log(cat == null);</code> 会返回true，是因为null == undefined。</li>
-<li>不要测试浮点数值的大小！</li>
-<li>数值转换的三种函数：Number()、parseInt()、parseFloat()。</li>
-<li>转换为字符串：toString()方法，以及String()函数。</li>
-<li>Object七大法宝：constructor、hasOwnProperty(propertyname)、isPrototypeOf(object)、propertyIsEnumerable(propertyName)、toLacaleString()、toString()、valueOf()</li>
-<li>操作符包括：一元操作符、按位操作符、布尔操作符、乘性操作符、关系操作符、相等操作符、赋值操作符、逗号操作符</li>
-<li>switch在比较的时候使用的是全等操作符。</li>
-<li>ECMAScript中的函数定义的时候不必指定是否返回值；return语句可以不带有返回值；严格模式下不能出现两个参数同名的情况。</li>
-<li>ECMAScript没有函数签名，相同的函数名称即使参数个数不同，后定义的会覆盖前面的，也就是没有重载。ECMAScript函数中的参数在内部是用一个数组来表示的，可以通过arguments对象来访问所传参数，且对所传参数个数没有要求，并不需要一定和命名参数个数相等。这一特性可以弥补没有重载的缺憾。</li>
-<li>在通过函数的arguments对象修改参数值时，会反映到对应的命名参数中（内存空间相互独立，只是值会同步）。arguments对象的长度由传入参数个数决定，若修改长度之外的参数值，将不会反应到对应的命名参数中。而没有传递值的命名参数将自动被赋予undefined值。严格模式下不允许重写arguments值。</li>
-<li>ECMAScript中所有的参数传递的都是值，不可能通过引用传递参数。</li>
-<li>检测变量是什么基本数据类型：typeof操作符，返回值可能为undefined、string、boolean、number、object、function。检测变量是什么类型的对象：instanceof操作符,如果给定对象是引用类型的实例，则返回true。</li>
-<li>JavaScript具有自动垃圾收集机制，垃圾收集器会按照固定的时间间隔周期性的执行这一项操作。</li>
-<li>基本类型值在内存中占据固定空间的大小，因此被保存在栈内存中；引用类型的值是对象，保存在堆内存中。</li>
-<li>标记清除是目前主流的垃圾回收机制。还有一种是引用计数，但当代码中存在循环引用时，引用计数方法会导致问题。</li>
-<li>主动解除引用可以消除循环引用现象，对垃圾收集也有好处。因此需要及时解除不再使用的全局对象、全局对象属性以及循环变量的引用。</li>
-<li>数组的length属性可读可写。</li>
-<li>函数实际上是对象，每个函数都是Function类型的实例。由于函数是对象，函数名实际上是一个指向函数对象的指针，不会与某个函数绑定。</li>
-<li>定义函数的三种方式：函数声明，函数表达式，构造函数方式（不推荐）。</li>
-<li>函数声明和函数表达式的唯一区别：在代码开始执行前，解析器会进行函数声明提升将函数声明添加到源代码树的顶部。</li>
-<li>要访问函数的指针而不是执行函数的话，必须去掉函数名后的括号。</li>
-<li>函数有两个特殊的内部属性：arguments，包含传入函数的所有参数，且具有一个callee属性，指向拥有arguments对象的函数；另一个是this，引用的是函数据以执行的环境对象,也就是说谁调用了该函数，this就指向谁。</li>
-<li>函数对象的另一个属性：caller,保存着调用当前函数的函数的引用。</li>
-<li>引用类型与基本包装类型的主要区别就是对象的声明周期。基本包装类型包括：Number、String、Boolean。</li>
-<li>布尔表达式中所有对象都会被转为true。</li>
-<li>encodeURI只对空格编码，encodeURIComponent()会编码所有的非字母数字字符。</li>
-<li>在所有代码执行之前，作用域中就已经存在两个内置对象：Global和Math。</li>
-<li>对象的属性分为数据属性和访问器属性。数据属性有四种行为描述：configurable,enumerable,writable,value。访问器属性有四种行为描述：configurable,enumerable,get,set。都可以通过Object.defineProperty(object,propertyName,{})进行定义。读取则通过Obeject.getOwnPropertyDescriptor(object,propertyName)方法。</li>
-</ul>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1932,7 +1897,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">22</span>
+                <span class="site-state-item-count">23</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
