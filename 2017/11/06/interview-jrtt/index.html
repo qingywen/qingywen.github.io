@@ -1,0 +1,828 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="interview," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="1. margin和paddingmargin：块级元素都有效，行内元素只有左右有效。行内元素还会忽略周围元素上下的margin值而直接进行布局。    值 描述     auto 浏览器设置的上外边距。   length 定义固定的上外边距。默认值是 0。   % 定义基于父对象宽度的百分比。   inherit 规定应该从父元素继承上外边距。默认继承性：no    padding: 块级元素都">
+<meta name="keywords" content="interview">
+<meta property="og:type" content="article">
+<meta property="og:title" content="面试笔记1">
+<meta property="og:url" content="http://yoursite.com/2017/11/06/interview-jrtt/index.html">
+<meta property="og:site_name" content="青菜不是葵花">
+<meta property="og:description" content="1. margin和paddingmargin：块级元素都有效，行内元素只有左右有效。行内元素还会忽略周围元素上下的margin值而直接进行布局。    值 描述     auto 浏览器设置的上外边距。   length 定义固定的上外边距。默认值是 0。   % 定义基于父对象宽度的百分比。   inherit 规定应该从父元素继承上外边距。默认继承性：no    padding: 块级元素都">
+<meta property="og:image" content="http://yoursite.com/2017/11/06/interview-jrtt/defer_async.jpg">
+<meta property="og:image" content="http://yoursite.com/2017/11/06/interview-jrtt/triangle.PNG">
+<meta property="og:updated_time" content="2017-11-13T02:28:20.991Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="面试笔记1">
+<meta name="twitter:description" content="1. margin和paddingmargin：块级元素都有效，行内元素只有左右有效。行内元素还会忽略周围元素上下的margin值而直接进行布局。    值 描述     auto 浏览器设置的上外边距。   length 定义固定的上外边距。默认值是 0。   % 定义基于父对象宽度的百分比。   inherit 规定应该从父元素继承上外边距。默认继承性：no    padding: 块级元素都">
+<meta name="twitter:image" content="http://yoursite.com/2017/11/06/interview-jrtt/defer_async.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/11/06/interview-jrtt/"/>
+
+
+
+
+
+  <title> 面试笔记1 | 青菜不是葵花 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">青菜不是葵花</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">绽放吧！</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/06/interview-jrtt/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="青菜">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="青菜不是葵花">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                面试笔记1
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-06T22:45:27+08:00">
+                2017-11-06
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/技术/" itemprop="url" rel="index">
+                    <span itemprop="name">技术</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="1-margin和padding"><a href="#1-margin和padding" class="headerlink" title="1. margin和padding"></a>1. margin和padding</h3><p>margin：块级元素都有效，行内元素只有左右有效。行内元素还会忽略周围元素上下的margin值而直接进行布局。</p>
+<table>
+<thead>
+<tr>
+<th>值</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>auto</td>
+<td>浏览器设置的上外边距。</td>
+</tr>
+<tr>
+<td>length</td>
+<td>定义固定的上外边距。默认值是 0。</td>
+</tr>
+<tr>
+<td>%</td>
+<td>定义基于父对象宽度的百分比。</td>
+</tr>
+<tr>
+<td>inherit</td>
+<td>规定应该从父元素继承上外边距。默认继承性：no</td>
+</tr>
+</tbody>
+</table>
+<p>padding: 块级元素都有效，行内元素只有左右有效。行内元素不能忽略父级元素的上下padding值。</p>
+<table>
+<thead>
+<tr>
+<th>值</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>auto</td>
+<td>浏览器计算内边距。</td>
+</tr>
+<tr>
+<td>length</td>
+<td>规定以具体单位计的内边距值，比如像素、厘米等。默认值是 0。</td>
+</tr>
+<tr>
+<td>%</td>
+<td>规定基于父元素的宽度的百分比。</td>
+</tr>
+<tr>
+<td>inherit</td>
+<td>规定应该从父元素继承内边距。默认继承性：no</td>
+</tr>
+</tbody>
+</table>
+<h3 id="2-如何html中开启和关闭DNS预读取？"><a href="#2-如何html中开启和关闭DNS预读取？" class="headerlink" title="2. 如何html中开启和关闭DNS预读取？"></a>2. 如何html中开启和关闭DNS预读取？</h3><p>参考网页：<a href="https://developer.mozilla.org/zh-CN/docs/Controlling_DNS_prefetching" target="_blank" rel="external">https://developer.mozilla.org/zh-CN/docs/Controlling_DNS_prefetching</a><br>通过X-DNS-Prefetch-Control: on/off来设置。</p>
+<p>X-DNS-Prefetch-Control的功能是:<br>X-DNS-Prefetch-Control控制着浏览器的预读取功能，它可以使得浏览器主动去执行域名解析的功能，包括文档中所有的链接。预读取会在后台执行，所以DNS很可能在链接对应的东西出现之前就已经解析完毕。这样能够减少用户点击链接时的延迟。</p>
+<p>为什么要预读取:<br>DNS请求带宽很小，但一旦涉及到多级解析，或者很少访问到的网站，需要从服务器硬盘中查找域名时，这时延迟就会比较高。这点在手机网络上特别明显。因此预读取可以使得解析提早完成，减少延迟。</p>
+<p>打开和关闭DNS预读取：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">"x-dns-prefetch-control"</span> <span class="attr">content</span>=<span class="string">"off"</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p>强制查询特定主机名：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"dns-prefetch"</span> <span class="attr">href</span>=<span class="string">"http://www.spreadfirefox.com/"</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"dns-prefetch"</span> <span class="attr">href</span>=<span class="string">"//www.spreadfirefox.com"</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<h3 id="3-CSS属性position有几种值"><a href="#3-CSS属性position有几种值" class="headerlink" title="3. CSS属性position有几种值"></a>3. CSS属性position有几种值</h3><p>absolute   fixed   relative   static   inherit</p>
+<h3 id="4-如何用正则将ejs风格分隔符-lt-gt-变成mustache风格的-123-123-125-125"><a href="#4-如何用正则将ejs风格分隔符-lt-gt-变成mustache风格的-123-123-125-125" class="headerlink" title="4. 如何用正则将ejs风格分隔符&lt;%= %&gt;变成mustache风格的&#123;&#123;&#125;&#125;"></a>4. 如何用正则将ejs风格分隔符<code>&lt;%= %&gt;</code>变成mustache风格的&#123;&#123;&#125;&#125;</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> text = <span class="string">`&lt;%=hello world%&gt;&lt;%=hello world%&gt;&lt;%=hello world%&gt;`</span></div><div class="line"><span class="keyword">var</span> result = text.replace(<span class="regexp">/&lt;%=/g</span>, <span class="string">`&#123;&#123;`</span>).replace(<span class="regexp">/%&gt;/g</span>, <span class="string">`&#125;&#125;`</span>)</div></pre></td></tr></table></figure>
+<h3 id="5-在HTTP响应Header中，Cache-control的常规值有哪些？"><a href="#5-在HTTP响应Header中，Cache-control的常规值有哪些？" class="headerlink" title="5. 在HTTP响应Header中，Cache-control的常规值有哪些？"></a>5. 在HTTP响应Header中，Cache-control的常规值有哪些？</h3><p>参考网页：<a href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Headers/Cache-Control" target="_blank" rel="external">https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Headers/Cache-Control</a></p>
+<p>Cache-control通用消息头被用于在请求和响应中通过指定指令来实现缓存机制。单向。</p>
+<p>缓存请求指令：<br>Cache-Control: max-age=<code>&lt;seconds&gt;</code><br>Cache-Control: max-stale[=<code>&lt;seconds&gt;</code>] 表明客户端愿意接收一个已经过期的资源<br>Cache-Control: min-fresh=<code>&lt;seconds&gt;</code>示客户端希望在指定的时间内获取最新的响应<br>Cache-control: no-cache  强制所有缓存了该响应的缓存用户，在使用已存储的缓存数据前，发送带验证器的请求到原始服务器<br>Cache-control: no-store 缓存不应存储有关客户端请求或服务器响应的任何内容。<br>Cache-control: no-transform 不得对资源进行转换或转变。<br>Cache-control: only-if-cached 客户端只接受已缓存的响应， 并且不要向原始服务器检查是否有更新的拷贝</p>
+<p>缓存响应指令：<br>Cache-control: must-revalidate 缓存必须在使用之前验证旧资源的状态，并且不可使用过期资源。<br>Cache-control: no-cache  强制所有缓存了该响应的缓存用户，在使用已存储的缓存数据前，发送带验证器的请求到原始服务器<br>Cache-control: no-store 缓存不应存储有关客户端请求或服务器响应的任何内容。<br>Cache-control: no-transform 不得对资源进行转换或转变。<br>Cache-control: public 响应可以被任何对象缓存<br>Cache-control: private 响应只能被单个用户缓存，不能作为共享缓存<br>Cache-control: proxy-revalidate 与must-revalidate作用相同，但它仅适用于共享缓存<br>Cache-Control: max-age=<seconds> 设置缓存存储的最大周期<br>Cache-control: s-maxage=<seconds> 覆盖max-age 或者 Expires 头，但是仅适用于共享缓存</seconds></seconds></p>
+<p>expires: http响应首部，用来指明一个响应的到期时间。格式<code>Expires: Wed, 21 Oct 2015 07:28:00 GMT</code></p>
+<h3 id="6-lt-script-gt-标签defer和async属性的作用，以及二者的区别？"><a href="#6-lt-script-gt-标签defer和async属性的作用，以及二者的区别？" class="headerlink" title="6. &lt;script&gt;标签defer和async属性的作用，以及二者的区别？"></a>6. <code>&lt;script&gt;</code>标签defer和async属性的作用，以及二者的区别？</h3><p>若没有defer和async，浏览器遇到<code>&lt;script&gt;</code>标签会立即加载并执行该脚本，且停止加载和渲染文档元素。有了defer和async时，浏览器就可以异步加载脚本，不影响文档的加载和渲染。但defer和async有一定区别，在于async会使得脚本加载完则立即执行，而defer会延迟到页面元素解析完毕后再执行。<br><img src="/2017/11/06/interview-jrtt/defer_async.jpg" alt="图片来源(https://segmentfault.com/q/1010000000640869)" title="图片来源(https://segmentfault.com/q/1010000000640869)"></p>
+<h3 id="7-如何准确判断JS中一个变量的类型，请说明方法和原理。"><a href="#7-如何准确判断JS中一个变量的类型，请说明方法和原理。" class="headerlink" title="7.如何准确判断JS中一个变量的类型，请说明方法和原理。"></a>7.如何准确判断JS中一个变量的类型，请说明方法和原理。</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 方法一：typeof + instanceof</span></div><div class="line"><span class="comment">// 基本数据类型中typeof null返回object，复杂数据类型中typeof function返回function</span></div><div class="line"><span class="keyword">var</span> checkType = <span class="function"><span class="keyword">function</span>(<span class="params">vari</span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> result = <span class="keyword">typeof</span> vari</div><div class="line">    <span class="keyword">if</span> (<span class="built_in">Array</span>.isArray(vari)) &#123;</div><div class="line">        result = <span class="string">'array'</span></div><div class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="built_in">Object</span>.is(vari,<span class="literal">null</span>)) &#123;</div><div class="line">        result = <span class="string">'null'</span></div><div class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (vari <span class="keyword">instanceof</span> <span class="built_in">Date</span>) &#123;</div><div class="line">        result = <span class="string">'date'</span></div><div class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (vari <span class="keyword">instanceof</span> <span class="built_in">RegExp</span>) &#123;</div><div class="line">        result = <span class="string">'RegExp'</span></div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> result</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// 方法二：大招！ </span></div><div class="line"><span class="comment">// Object原型对象的方法toString()会返回[object type]</span></div><div class="line"><span class="keyword">var</span> result = <span class="built_in">Object</span>.prototype.toString.call(vari).split(<span class="number">8</span>,<span class="number">-1</span>);</div></pre></td></tr></table></figure>
+<h3 id="8-请写出下面代码的执行结果，并在注释中表名原因"><a href="#8-请写出下面代码的执行结果，并在注释中表名原因" class="headerlink" title="8.请写出下面代码的执行结果，并在注释中表名原因"></a>8.请写出下面代码的执行结果，并在注释中表名原因</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Foo</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    getName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;alert(<span class="number">1</span>)&#125;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">this</span>;</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> getName;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">getName</span>(<span class="params"></span>) </span>&#123;alert(<span class="number">5</span>)&#125;</div><div class="line">Foo.getName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;alert(<span class="number">2</span>)&#125;</div><div class="line">Foo.prototype.getName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;alert(<span class="number">3</span>)&#125;</div><div class="line">getName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;alert(<span class="number">4</span>)&#125;</div><div class="line">getName()  <span class="comment">// 4</span></div></pre></td></tr></table></figure>
+<h3 id="9-使用CSS3设计一个立起的圆形，并围绕自身中轴线做360度持续旋转（类似用手拨动一枚立起的硬币，在桌面上旋转的效果）。"><a href="#9-使用CSS3设计一个立起的圆形，并围绕自身中轴线做360度持续旋转（类似用手拨动一枚立起的硬币，在桌面上旋转的效果）。" class="headerlink" title="9.使用CSS3设计一个立起的圆形，并围绕自身中轴线做360度持续旋转（类似用手拨动一枚立起的硬币，在桌面上旋转的效果）。"></a>9.使用CSS3设计一个立起的圆形，并围绕自身中轴线做360度持续旋转（类似用手拨动一枚立起的硬币，在桌面上旋转的效果）。</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.circle</span> &#123;</div><div class="line">    <span class="attribute">width</span>: <span class="number">100px</span>;</div><div class="line">    <span class="attribute">height</span>: <span class="number">100px</span>;</div><div class="line">    <span class="attribute">background-color</span>: <span class="number">#f37cae</span>;</div><div class="line">    <span class="attribute">border</span>: <span class="number">1px</span> solid <span class="number">#ee4e91</span>;</div><div class="line">    <span class="attribute">border-radius</span>: <span class="number">100%</span>;</div><div class="line">    <span class="attribute">animation</span>: rotate <span class="number">1s</span> linear infinite;</div><div class="line">&#125;</div><div class="line">@<span class="keyword">keyframes</span> rotate &#123;</div><div class="line">    0% &#123; <span class="attribute">width</span>: <span class="number">100px</span>; &#125;</div><div class="line">    25% &#123; <span class="attribute">width</span>: <span class="number">51px</span>; &#125;</div><div class="line">    50% &#123; <span class="attribute">width</span>: <span class="number">2px</span>; &#125;</div><div class="line">    75% &#123; <span class="attribute">width</span>: <span class="number">51px</span>; &#125;</div><div class="line">    100% &#123; <span class="attribute">width</span>: <span class="number">100px</span>; &#125;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.center</span> &#123;</div><div class="line">    <span class="attribute">margin</span>: <span class="number">10px</span> auto;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"circle center"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
+<h3 id="10-编写javascript对象的深度克隆函数deepClone-注意对象值中的多种数据类型-。"><a href="#10-编写javascript对象的深度克隆函数deepClone-注意对象值中的多种数据类型-。" class="headerlink" title="10. 编写javascript对象的深度克隆函数deepClone(注意对象值中的多种数据类型)。"></a>10. 编写javascript对象的深度克隆函数deepClone(注意对象值中的多种数据类型)。</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> deepClone = <span class="function"><span class="keyword">function</span>(<span class="params">obj</span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> normal = <span class="built_in">JSON</span>.parse(<span class="built_in">JSON</span>.stringify(obj));</div><div class="line">    <span class="keyword">for</span>(key <span class="keyword">in</span> obj) &#123;</div><div class="line">        <span class="keyword">var</span> tp = <span class="built_in">Object</span>.prototype.toString.call(obj[key]).slice(<span class="number">8</span>,<span class="number">-1</span>).toLowerCase()</div><div class="line">        <span class="keyword">if</span> (tp === <span class="string">"undefined"</span>) &#123;</div><div class="line">            normal[key] = <span class="literal">undefined</span></div><div class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (tp === <span class="string">"function"</span>) &#123;</div><div class="line">            normal[key] = obj[key]</div><div class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (tp === <span class="string">"date"</span>) &#123;</div><div class="line">            normal[key] = <span class="keyword">new</span> <span class="built_in">Date</span>(obj[key])</div><div class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (tp === <span class="string">"RegExp"</span>) &#123;</div><div class="line">            normal[key] = <span class="keyword">new</span> <span class="built_in">RegExp</span>(obj[key])</div><div class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (tp === <span class="string">"object"</span>) &#123;</div><div class="line">            normal[key] = deepClone(obj[key])</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> normal</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="11-给定一个无序数组，请设计一个算法找出其中连续出现的数字区间。"><a href="#11-给定一个无序数组，请设计一个算法找出其中连续出现的数字区间。" class="headerlink" title="11. 给定一个无序数组，请设计一个算法找出其中连续出现的数字区间。"></a>11. 给定一个无序数组，请设计一个算法找出其中连续出现的数字区间。</h3><h3 id="12-用CSS写一个三角形"><a href="#12-用CSS写一个三角形" class="headerlink" title="12. 用CSS写一个三角形"></a>12. 用CSS写一个三角形</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/*四个三角形，若想设置单个，则其他颜色设置成transparent*/</span></div><div class="line"><span class="selector-class">.triangle</span> &#123;</div><div class="line">    <span class="attribute">width</span>: <span class="number">0</span>;</div><div class="line">    <span class="attribute">border-left</span>: <span class="number">50px</span> solid red;</div><div class="line">    <span class="attribute">border-right</span>: <span class="number">50px</span> solid yellow;</div><div class="line">    <span class="attribute">border-top</span>: <span class="number">50px</span> solid green;</div><div class="line">    <span class="attribute">border-bottom</span>: <span class="number">50px</span> solid blue;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<img src="/2017/11/06/interview-jrtt/triangle.PNG" alt="triangle.PNG" title="">
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/interview/" rel="tag"># interview</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/11/16/http-status3xx/" rel="next" title="301 302 303 307">
+                <i class="fa fa-chevron-left"></i> 301 302 303 307
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/11/03/js-pro-delegation/" rel="prev" title="事件委托的好处">
+                事件委托的好处 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="青菜" />
+          <p class="site-author-name" itemprop="name">青菜</p>
+           
+              <p class="site-description motion-element" itemprop="description">主攻前端方向，偶尔来点杂文</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">25</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">16</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/qingywen" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.zhihu.com/people/mo-si-ye-96" target="_blank" title="zhihu">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  zhihu
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-margin和padding"><span class="nav-number">1.</span> <span class="nav-text">1. margin和padding</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-如何html中开启和关闭DNS预读取？"><span class="nav-number">2.</span> <span class="nav-text">2. 如何html中开启和关闭DNS预读取？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-CSS属性position有几种值"><span class="nav-number">3.</span> <span class="nav-text">3. CSS属性position有几种值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-如何用正则将ejs风格分隔符-lt-gt-变成mustache风格的-123-123-125-125"><span class="nav-number">4.</span> <span class="nav-text">4. 如何用正则将ejs风格分隔符<%= %>变成mustache风格的{{}}</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-在HTTP响应Header中，Cache-control的常规值有哪些？"><span class="nav-number">5.</span> <span class="nav-text">5. 在HTTP响应Header中，Cache-control的常规值有哪些？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-lt-script-gt-标签defer和async属性的作用，以及二者的区别？"><span class="nav-number">6.</span> <span class="nav-text">6. <script>标签defer和async属性的作用，以及二者的区别？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-如何准确判断JS中一个变量的类型，请说明方法和原理。"><span class="nav-number">7.</span> <span class="nav-text">7.如何准确判断JS中一个变量的类型，请说明方法和原理。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-请写出下面代码的执行结果，并在注释中表名原因"><span class="nav-number">8.</span> <span class="nav-text">8.请写出下面代码的执行结果，并在注释中表名原因</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-使用CSS3设计一个立起的圆形，并围绕自身中轴线做360度持续旋转（类似用手拨动一枚立起的硬币，在桌面上旋转的效果）。"><span class="nav-number">9.</span> <span class="nav-text">9.使用CSS3设计一个立起的圆形，并围绕自身中轴线做360度持续旋转（类似用手拨动一枚立起的硬币，在桌面上旋转的效果）。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#10-编写javascript对象的深度克隆函数deepClone-注意对象值中的多种数据类型-。"><span class="nav-number">10.</span> <span class="nav-text">10. 编写javascript对象的深度克隆函数deepClone(注意对象值中的多种数据类型)。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#11-给定一个无序数组，请设计一个算法找出其中连续出现的数字区间。"><span class="nav-number">11.</span> <span class="nav-text">11. 给定一个无序数组，请设计一个算法找出其中连续出现的数字区间。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#12-用CSS写一个三角形"><span class="nav-number">12.</span> <span class="nav-text">12. 用CSS写一个三角形</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">青菜</span>
+</div>
+
+<!-- 
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+ -->
+
+ 
+<div>
+  Patience is bitter,  but its fruit is sweet.
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

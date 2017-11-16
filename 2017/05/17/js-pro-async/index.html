@@ -87,18 +87,18 @@
 
 
 
-<meta name="description" content="当浏览器遇到script的时候，有三种情况：1&amp;lt;script src=&quot;test.js&quot;&amp;gt;没有defer或async时，浏览器会立即加载和执行该脚本，并停止加载和渲染文档元素。1&amp;lt;script src=&quot;test.js&quot; async=&quot;async&quot;有async时，浏览器会异步加载和执行该脚本，但不影响文档元素的加载和渲染。1&amp;lt;script src=&quot;test.js&quot; def">
+<meta name="description" content="当浏览器遇到script的时候，有三种情况：1&amp;lt;script src=&quot;test.js&quot;&amp;gt;没有defer或async时，浏览器会立即加载和执行该脚本，并停止加载和渲染文档元素。1&amp;lt;script src=&quot;test.js&quot; async=&quot;async&quot;&amp;gt;有async时，浏览器会异步加载和执行该脚本，但不影响文档元素的加载和渲染。1&amp;lt;script src=&quot;test.js&quot;">
 <meta name="keywords" content="JavaScript">
 <meta property="og:type" content="article">
 <meta property="og:title" content="async和defer的区别">
 <meta property="og:url" content="http://yoursite.com/2017/05/17/js-pro-async/index.html">
 <meta property="og:site_name" content="青菜不是葵花">
-<meta property="og:description" content="当浏览器遇到script的时候，有三种情况：1&amp;lt;script src=&quot;test.js&quot;&amp;gt;没有defer或async时，浏览器会立即加载和执行该脚本，并停止加载和渲染文档元素。1&amp;lt;script src=&quot;test.js&quot; async=&quot;async&quot;有async时，浏览器会异步加载和执行该脚本，但不影响文档元素的加载和渲染。1&amp;lt;script src=&quot;test.js&quot; def">
+<meta property="og:description" content="当浏览器遇到script的时候，有三种情况：1&amp;lt;script src=&quot;test.js&quot;&amp;gt;没有defer或async时，浏览器会立即加载和执行该脚本，并停止加载和渲染文档元素。1&amp;lt;script src=&quot;test.js&quot; async=&quot;async&quot;&amp;gt;有async时，浏览器会异步加载和执行该脚本，但不影响文档元素的加载和渲染。1&amp;lt;script src=&quot;test.js&quot;">
 <meta property="og:image" content="http://yoursite.com/2017/05/17/js-pro-async/defer_async.jpg">
-<meta property="og:updated_time" content="2017-08-25T07:07:42.042Z">
+<meta property="og:updated_time" content="2017-11-09T09:15:11.163Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="async和defer的区别">
-<meta name="twitter:description" content="当浏览器遇到script的时候，有三种情况：1&amp;lt;script src=&quot;test.js&quot;&amp;gt;没有defer或async时，浏览器会立即加载和执行该脚本，并停止加载和渲染文档元素。1&amp;lt;script src=&quot;test.js&quot; async=&quot;async&quot;有async时，浏览器会异步加载和执行该脚本，但不影响文档元素的加载和渲染。1&amp;lt;script src=&quot;test.js&quot; def">
+<meta name="twitter:description" content="当浏览器遇到script的时候，有三种情况：1&amp;lt;script src=&quot;test.js&quot;&amp;gt;没有defer或async时，浏览器会立即加载和执行该脚本，并停止加载和渲染文档元素。1&amp;lt;script src=&quot;test.js&quot; async=&quot;async&quot;&amp;gt;有async时，浏览器会异步加载和执行该脚本，但不影响文档元素的加载和渲染。1&amp;lt;script src=&quot;test.js&quot;">
 <meta name="twitter:image" content="http://yoursite.com/2017/05/17/js-pro-async/defer_async.jpg">
 
 
@@ -366,7 +366,7 @@
       
 
       
-        <p>当浏览器遇到script的时候，有三种情况：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;script src=<span class="string">"test.js"</span>&gt;</div></pre></td></tr></table></figure>没有defer或async时，浏览器会立即加载和执行该脚本，并停止加载和渲染文档元素。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;script src=<span class="string">"test.js"</span> <span class="keyword">async</span>=<span class="string">"async"</span></div></pre></td></tr></table></figure>有async时，浏览器会异步加载和执行该脚本，但不影响文档元素的加载和渲染。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;script src=<span class="string">"test.js"</span> defer=<span class="string">"defer"</span>&gt;</div></pre></td></tr></table></figure>有defer时，浏览器会异步加载该脚本，不影响文档元素的加载和渲染,但执行脚本的过程延迟到页面解析完毕后运行。<br>以上三个过程如下图。<br><img src="/2017/05/17/js-pro-async/defer_async.jpg" alt="图片来源(https://segmentfault.com/q/1010000000640869)" title="图片来源(https://segmentfault.com/q/1010000000640869)"><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt;script src=<span class="string">"test1.js"</span> defer=<span class="string">"defer"</span>&gt;</div><div class="line"><span class="xml"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"test2.js"</span> <span class="attr">defer</span>=<span class="string">"defer"</span>&gt;</span><span class="undefined"></span></span></div></pre></td></tr></table></figure>此外，当同时有多个延迟脚本时，如上图，此时脚本1和脚本2会并行加载，但执行的顺序却有些复杂。HTML5规范延迟脚本按照它们出现的先后顺序执行,但实际中浏览器的实现机制却各不相同。当我在脚本1中写出一个执行时间远大于脚本2中的函数时，Chrome浏览器按照规范先执行脚本1，再执行脚本2;IE则会先执行脚本2，再执行脚本1；firefox同Chrome。</p>
+        <p>当浏览器遇到script的时候，有三种情况：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;script src=<span class="string">"test.js"</span>&gt;</div></pre></td></tr></table></figure>没有defer或async时，浏览器会立即加载和执行该脚本，并停止加载和渲染文档元素。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;script src=<span class="string">"test.js"</span> <span class="keyword">async</span>=<span class="string">"async"</span>&gt;</div></pre></td></tr></table></figure>有async时，浏览器会异步加载和执行该脚本，但不影响文档元素的加载和渲染。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;script src=<span class="string">"test.js"</span> defer=<span class="string">"defer"</span>&gt;</div></pre></td></tr></table></figure>有defer时，浏览器会异步加载该脚本，不影响文档元素的加载和渲染,但执行脚本的过程延迟到页面解析完毕后运行。<br>以上三个过程如下图。<br><img src="/2017/05/17/js-pro-async/defer_async.jpg" alt="图片来源(https://segmentfault.com/q/1010000000640869)" title="图片来源(https://segmentfault.com/q/1010000000640869)"><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt;script src=<span class="string">"test1.js"</span> defer=<span class="string">"defer"</span>&gt;</div><div class="line"><span class="xml"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"test2.js"</span> <span class="attr">defer</span>=<span class="string">"defer"</span>&gt;</span><span class="undefined"></span></span></div></pre></td></tr></table></figure>此外，当同时有多个延迟脚本时，如上图，此时脚本1和脚本2会并行加载，但执行的顺序却有些复杂。HTML5规范延迟脚本按照它们出现的先后顺序执行,但实际中浏览器的实现机制却各不相同。当我在脚本1中写出一个执行时间远大于脚本2中的函数时，Chrome浏览器按照规范先执行脚本1，再执行脚本2;IE则会先执行脚本2，再执行脚本1；firefox同Chrome。</p>
 
       
     </div>
@@ -484,7 +484,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">23</span>
+                <span class="site-state-item-count">25</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -506,7 +506,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">14</span>
+                <span class="site-state-item-count">16</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
