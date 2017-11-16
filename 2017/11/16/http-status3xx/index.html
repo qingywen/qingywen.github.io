@@ -94,7 +94,7 @@
 <meta property="og:url" content="http://yoursite.com/2017/11/16/http-status3xx/index.html">
 <meta property="og:site_name" content="青菜不是葵花">
 <meta property="og:description" content="HTTP 1.0301 moved permanently规范：301表示永久重定向，当资源被永久迁移到一个新的URL时，任何未来对该资源的访问都会重定向到这个新的URL。具有编辑能力的用户将自动重新链接到新的地址上。新的链接地址需在服务器的响应首部给出，除了HEAD请求，这个响应报文的实体需要包含一个新的超链接的说明。但如果是对于POST方法的请求，若返回301状态码，用户则需要确认后才能重定向">
-<meta property="og:updated_time" content="2017-11-16T02:38:00.080Z">
+<meta property="og:updated_time" content="2017-11-16T02:42:17.234Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="301 302 303 307">
 <meta name="twitter:description" content="HTTP 1.0301 moved permanently规范：301表示永久重定向，当资源被永久迁移到一个新的URL时，任何未来对该资源的访问都会重定向到这个新的URL。具有编辑能力的用户将自动重新链接到新的地址上。新的链接地址需在服务器的响应首部给出，除了HEAD请求，这个响应报文的实体需要包含一个新的超链接的说明。但如果是对于POST方法的请求，若返回301状态码，用户则需要确认后才能重定向">
@@ -364,16 +364,16 @@
       
 
       
-        <h1 id="HTTP-1-0"><a href="#HTTP-1-0" class="headerlink" title="HTTP 1.0"></a>HTTP 1.0</h1><h3 id="301-moved-permanently"><a href="#301-moved-permanently" class="headerlink" title="301 moved permanently"></a>301 moved permanently</h3><p>规范：301表示永久重定向，当资源被永久迁移到一个新的URL时，任何未来对该资源的访问都会重定向到这个新的URL。具有编辑能力的用户将自动重新链接到新的地址上。新的链接地址需在服务器的响应首部给出，除了HEAD请求，这个响应报文的实体需要包含一个新的超链接的说明。但如果是对于POST方法的请求，若返回301状态码，用户则需要确认后才能重定向。</p>
+        <h1 id="HTTP-1-0"><a href="#HTTP-1-0" class="headerlink" title="HTTP 1.0"></a>HTTP 1.0</h1><h2 id="301-moved-permanently"><a href="#301-moved-permanently" class="headerlink" title="301 moved permanently"></a>301 moved permanently</h2><p>规范：301表示永久重定向，当资源被永久迁移到一个新的URL时，任何未来对该资源的访问都会重定向到这个新的URL。具有编辑能力的用户将自动重新链接到新的地址上。新的链接地址需在服务器的响应首部给出，除了HEAD请求，这个响应报文的实体需要包含一个新的超链接的说明。但如果是对于POST方法的请求，若返回301状态码，用户则需要确认后才能重定向。</p>
 <p>实现：但实际上关于post请求重定向用户确认的问题，浏览器上并没有实现，而且部分浏览器还会还会错误的发送一个GET请求到新地址。</p>
-<h3 id="302-moved-temporarily"><a href="#302-moved-temporarily" class="headerlink" title="302 moved temporarily"></a>302 moved temporarily</h3><p>HTTP1.0：302表示临时重定向，location中的地址不应该被认为是资源路径，在后续的请求中应该继续使用原地址。原请求是post，则不能自动进行重定向，原请求是get,可以自动重定向。</p>
+<h2 id="302-moved-temporarily"><a href="#302-moved-temporarily" class="headerlink" title="302 moved temporarily"></a>302 moved temporarily</h2><p>HTTP1.0：302表示临时重定向，location中的地址不应该被认为是资源路径，在后续的请求中应该继续使用原地址。原请求是post，则不能自动进行重定向，原请求是get,可以自动重定向。</p>
 <p>实现：浏览器即便请求POST也会自动重定向。</p>
 <p>应用：302劫持——若A站通过重定向到B站的资源x，A站具有较好的域名，但B站域名不那么友好，因此对搜索引擎而言，可能会保存A站的地址对应资源x而不是B站，这样A站就利用了B站的资源提高了自己的搜索排名。</p>
 <p>总结：301与302规范和实现上一样，不同的是301是永久重定向，302是临时重定向。</p>
-<h1 id="HTTP-1-1"><a href="#HTTP-1-1" class="headerlink" title="HTTP 1.1"></a>HTTP 1.1</h1><h3 id="301-moved-permanently-1"><a href="#301-moved-permanently-1" class="headerlink" title="301 moved permanently"></a>301 moved permanently</h3><p>同1.0</p>
-<h3 id="302-found"><a href="#302-found" class="headerlink" title="302 found"></a>302 found</h3><p>302不再推荐使用，为兼容而保留。且再次重申只有当请求是GET或HEAD时才能自动重定向。为了消除HTTP1.0中302的二义性，在HTTP1.0中引入了303和307来细化302的语义。</p>
-<h3 id="303-see-other"><a href="#303-see-other" class="headerlink" title="303 see other"></a>303 see other</h3><p>HTTP1.1: 1.0中302的实现</p>
-<h3 id="307-temporary-redirect"><a href="#307-temporary-redirect" class="headerlink" title="307 temporary redirect"></a>307 temporary redirect</h3><p>HHTP1.1：1.0中302的规范</p>
+<h1 id="HTTP-1-1"><a href="#HTTP-1-1" class="headerlink" title="HTTP 1.1"></a>HTTP 1.1</h1><h2 id="301-moved-permanently-1"><a href="#301-moved-permanently-1" class="headerlink" title="301 moved permanently"></a>301 moved permanently</h2><p>同1.0</p>
+<h2 id="302-found"><a href="#302-found" class="headerlink" title="302 found"></a>302 found</h2><p>302不再推荐使用，为兼容而保留。且再次重申只有当请求是GET或HEAD时才能自动重定向。为了消除HTTP1.0中302的二义性，在HTTP1.0中引入了303和307来细化302的语义。</p>
+<h2 id="303-see-other"><a href="#303-see-other" class="headerlink" title="303 see other"></a>303 see other</h2><p>HTTP1.1: 1.0中302的实现</p>
+<h2 id="307-temporary-redirect"><a href="#307-temporary-redirect" class="headerlink" title="307 temporary redirect"></a>307 temporary redirect</h2><p>HHTP1.1：1.0中302的规范</p>
 
       
     </div>
@@ -573,7 +573,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#HTTP-1-0"><span class="nav-number">1.</span> <span class="nav-text">HTTP 1.0</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#301-moved-permanently"><span class="nav-number">1.0.1.</span> <span class="nav-text">301 moved permanently</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#302-moved-temporarily"><span class="nav-number">1.0.2.</span> <span class="nav-text">302 moved temporarily</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#HTTP-1-1"><span class="nav-number">2.</span> <span class="nav-text">HTTP 1.1</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#301-moved-permanently-1"><span class="nav-number">2.0.1.</span> <span class="nav-text">301 moved permanently</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#302-found"><span class="nav-number">2.0.2.</span> <span class="nav-text">302 found</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#303-see-other"><span class="nav-number">2.0.3.</span> <span class="nav-text">303 see other</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#307-temporary-redirect"><span class="nav-number">2.0.4.</span> <span class="nav-text">307 temporary redirect</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#HTTP-1-0"><span class="nav-number">1.</span> <span class="nav-text">HTTP 1.0</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#301-moved-permanently"><span class="nav-number">1.1.</span> <span class="nav-text">301 moved permanently</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#302-moved-temporarily"><span class="nav-number">1.2.</span> <span class="nav-text">302 moved temporarily</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#HTTP-1-1"><span class="nav-number">2.</span> <span class="nav-text">HTTP 1.1</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#301-moved-permanently-1"><span class="nav-number">2.1.</span> <span class="nav-text">301 moved permanently</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#302-found"><span class="nav-number">2.2.</span> <span class="nav-text">302 found</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#303-see-other"><span class="nav-number">2.3.</span> <span class="nav-text">303 see other</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#307-temporary-redirect"><span class="nav-number">2.4.</span> <span class="nav-text">307 temporary redirect</span></a></li></ol></li></ol></div>
             
 
           </div>
