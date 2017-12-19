@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="DOM,JavaScript," />
+  <meta name="keywords" content="技术," />
 
 
 
@@ -87,20 +87,17 @@
 
 
 
-<meta name="description" content="看到《DOM编程艺术》第7章，有几点值得记一下。 document.write 与 innerHTMLdocument.write是一个古老的方法，它在W3C上定义了两种用途：一是在文档中输出HTML，另一种是在调用该方法的的窗口之外的窗口、框架中产生新文档（记得用close()关闭）。看似document.write对产生一个新的文档或窗口这样的用途很有意义，但书上说：document.writ">
-<meta name="keywords" content="DOM,JavaScript">
+<meta name="description" content="思路：     1. 监听input[type=file]的变化，一旦触发则开启显示事件。     2. 读取file对象，检查类型。     3. 新建image节点，添加到展示区域     4. 新建FileReader对象，读取图片文件并将其添加到image的src 12&amp;lt;input type=&quot;file&quot; name=&quot;image&quot; id=&quot;image&quot; accept=&quot;image/p">
+<meta name="keywords" content="技术">
 <meta property="og:type" content="article">
-<meta property="og:title" content="document.write与innerHTML">
-<meta property="og:url" content="http://yoursite.com/2017/05/09/js-dom-dynamicTag/index.html">
+<meta property="og:title" content="实现图片本地预览">
+<meta property="og:url" content="http://yoursite.com/2017/12/18/js-file-image/index.html">
 <meta property="og:site_name" content="青菜不是葵花">
-<meta property="og:description" content="看到《DOM编程艺术》第7章，有几点值得记一下。 document.write 与 innerHTMLdocument.write是一个古老的方法，它在W3C上定义了两种用途：一是在文档中输出HTML，另一种是在调用该方法的的窗口之外的窗口、框架中产生新文档（记得用close()关闭）。看似document.write对产生一个新的文档或窗口这样的用途很有意义，但书上说：document.writ">
-<meta property="og:image" content="http://yoursite.com/2017/05/09/js-dom-dynamicTag/document.PNG">
-<meta property="og:image" content="http://yoursite.com/2017/05/09/js-dom-dynamicTag/innerHTML.PNG">
-<meta property="og:updated_time" content="2017-08-25T07:07:23.346Z">
+<meta property="og:description" content="思路：     1. 监听input[type=file]的变化，一旦触发则开启显示事件。     2. 读取file对象，检查类型。     3. 新建image节点，添加到展示区域     4. 新建FileReader对象，读取图片文件并将其添加到image的src 12&amp;lt;input type=&quot;file&quot; name=&quot;image&quot; id=&quot;image&quot; accept=&quot;image/p">
+<meta property="og:updated_time" content="2017-12-19T01:45:26.925Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="document.write与innerHTML">
-<meta name="twitter:description" content="看到《DOM编程艺术》第7章，有几点值得记一下。 document.write 与 innerHTMLdocument.write是一个古老的方法，它在W3C上定义了两种用途：一是在文档中输出HTML，另一种是在调用该方法的的窗口之外的窗口、框架中产生新文档（记得用close()关闭）。看似document.write对产生一个新的文档或窗口这样的用途很有意义，但书上说：document.writ">
-<meta name="twitter:image" content="http://yoursite.com/2017/05/09/js-dom-dynamicTag/document.PNG">
+<meta name="twitter:title" content="实现图片本地预览">
+<meta name="twitter:description" content="思路：     1. 监听input[type=file]的变化，一旦触发则开启显示事件。     2. 读取file对象，检查类型。     3. 新建image节点，添加到展示区域     4. 新建FileReader对象，读取图片文件并将其添加到image的src 12&amp;lt;input type=&quot;file&quot; name=&quot;image&quot; id=&quot;image&quot; accept=&quot;image/p">
 
 
 
@@ -128,13 +125,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/05/09/js-dom-dynamicTag/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/12/18/js-file-image/"/>
 
 
 
 
 
-  <title> document.write与innerHTML | 青菜不是葵花 </title>
+  <title> 实现图片本地预览 | 青菜不是葵花 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -273,7 +270,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/09/js-dom-dynamicTag/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/18/js-file-image/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="青菜">
@@ -294,7 +291,7 @@
             
             
               
-                document.write与innerHTML
+                实现图片本地预览
               
             
           </h1>
@@ -309,8 +306,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-09T22:53:31+08:00">
-                2017-05-09
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-18T18:15:27+08:00">
+                2017-12-18
               </time>
             
 
@@ -319,28 +316,6 @@
             
           </span>
 
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/技术/" itemprop="url" rel="index">
-                    <span itemprop="name">技术</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
           
 
           
@@ -367,23 +342,16 @@
       
 
       
-        <p>看到《DOM编程艺术》第7章，有几点值得记一下。</p>
-<h3 id="document-write-与-innerHTML"><a href="#document-write-与-innerHTML" class="headerlink" title="document.write 与 innerHTML"></a>document.write 与 innerHTML</h3><p>document.write是一个古老的方法，它在W3C上定义了两种用途：一是在文档中输出HTML，另一种是在调用该方法的的窗口之外的窗口、框架中产生新文档（记得用close()关闭）。看似document.write对产生一个新的文档或窗口这样的用途很有意义，但书上说：<blockquote><p>document.write的最大缺点是它违背了“行为与样式分离的原则”。即使把document.write语句挪到外部函数里，也还是需要在标记的<code>&lt;body&gt;</code>部分使用<code>&lt;script&gt;</code>标签才能调用那个函数。</p>
-</blockquote>厮以为作者在这里讲的并不清楚，document.write违背了行为与表现分离的原则并不在于函数需要放在外部引用还是内部引用，而是因为当我们写了一段document.write来产生一个HTML文档时，这个新文档的结构hin可能是这个样子的：<br><img src="/2017/05/09/js-dom-dynamicTag/document.PNG" alt="document.PNG" title="">如你所见，<code>&lt;script&gt;</code>标签在<code>&lt;p&gt;</code>标签前面，也就是说document.write只能在现有文档结构的最后添加元素，因此只要使用document.write,则必定有HTML标签在<code>&lt;script&gt;</code>标签之后。这样的标记顺序十分的混乱，且里面的<code>&lt;script&gt;</code>标签也不是我们想要的，这样让我对document.write的好感度一下降低零点。</p>
-<p>反观用innerHTML来实现这个输出文档的功能，其输出文档结构如下：<br><img src="/2017/05/09/js-dom-dynamicTag/innerHTML.PNG" alt="innerHTML.PNG" title="">Look!这才是我们想要的行为与表现分离的文档结构！虽然innerHTML并不是DOM标准的组部分，但是已经包含在HTML5的规范中。几乎所有的浏览器都支持该属性，绝大多数情况下可以完美取代document.write方法。书上有一个很恰当的比方，“innerHTML就像一把大锤，而DOM则是一把手术刀”，我们可以用innerHTML大刀阔斧的直接插入网页内容，但是若想获取或修改DOM节点的属性等，我们还得需要DOM里更精确的方法如createElement与createTextNode等。</p>
-<p>总结一下document.write与innerHTML的区别：</p>
-<ul>
-<li>write是document对象的一个方法，直接写入到页面的内容流，如果之前没有调用document.open，浏览器会自动调用document.open。每次写完关闭之后重新调用该函数会导致页面被重写。重写内容会被添加到<code>&lt;script&gt;</code>元素后，破坏结构和行为分离的原则。</li>
-<li>innerHTML则是DOM页面元素的一个属性，代表该元素的html内容，可以精确到单个元素来进行修改，良好的而体现了结构和行为分离的原则。</li>
-</ul>
-<h3 id="重回图片库：结构样式分离升级版"><a href="#重回图片库：结构样式分离升级版" class="headerlink" title="重回图片库：结构样式分离升级版"></a>重回图片库：结构样式分离升级版</h3><p><blockquote><p>当有一段标记仅是为脚本服务的，即为了让DOM脚本处理它们，那么用DOM方法来创建它们才是最合适的选择</p>
-</blockquote>行为与结构分离的三层逐级进化概念：</p>
-<ol>
-<li>给HTML文档引用外部脚本。</li>
-<li>在HTML里设置挂钩，在外部js文件中给DOM节点添加事件，而不是在节点中添加类似<code>onclick=“func()”</code>这样的属性。</li>
-<li>只是为了DOM操作而存在的DOM节点应该动态创建，而不是直接出现在标记里。</li>
-</ol>
-<h3 id="渐进增强与Ajax"><a href="#渐进增强与Ajax" class="headerlink" title="渐进增强与Ajax"></a>渐进增强与Ajax</h3><p>Ajax是一种用来与服务器异步交互的技术，其核心为XMLHttpRequest，很多书中都会大谈特谈Ajax的方便之处，但《DOM编程》显然为一股清澈之流，作者认为能通过Ajax实现的应用一定也可以通过非Ajax技术来实现，且构建Ajax网站最好的方法是先构建一个常规的网站，再去Hijax它。这个观点跟平稳退化有着相似之处。十分欣赏作者在网站构建方面的缜密思维，总会考虑到如果这个方法可用，则怎么去做，如果这个方法不可用，再怎么去做。从不假设用户的行为与环境，而是从最基本的条件出发，这样使得少量的特殊用户也能很好的浏览我们的站点。</p>
+        <pre><code>思路：
+    1. 监听input[type=file]的变化，一旦触发则开启显示事件。
+    2. 读取file对象，检查类型。
+    3. 新建image节点，添加到展示区域
+    4. 新建FileReader对象，读取图片文件并将其添加到image的src
+</code></pre><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"file"</span> <span class="attr">name</span>=<span class="string">"image"</span> <span class="attr">id</span>=<span class="string">"image"</span> <span class="attr">accept</span>=<span class="string">"image/png,image/jpeg"</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"display"</span> <span class="attr">id</span>=<span class="string">"display"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> fileInput = <span class="built_in">document</span>.getElementById(<span class="string">"image"</span>)</div><div class="line">fileInput.onchange = <span class="function"><span class="keyword">function</span>(<span class="params">event</span>)</span>&#123;</div><div class="line">    <span class="keyword">if</span> (<span class="keyword">this</span>.files.length == <span class="number">0</span>) &#123; <span class="keyword">return</span> &#125;</div><div class="line">    <span class="keyword">var</span> oFile = <span class="keyword">this</span>.files[<span class="number">0</span>]</div><div class="line">    <span class="keyword">if</span> (!<span class="regexp">/image.*/</span>.test(oFile.type)) &#123;<span class="keyword">return</span>&#125;</div><div class="line">    <span class="keyword">var</span> img = <span class="built_in">document</span>.createElement(<span class="string">"img"</span>)</div><div class="line">    <span class="built_in">document</span>.getElementById(<span class="string">"display"</span>).appendChild(img)</div><div class="line"></div><div class="line">    <span class="keyword">var</span> reader = <span class="keyword">new</span> FileReader();</div><div class="line">    reader.onload = <span class="function"><span class="keyword">function</span>(<span class="params">evt</span>) </span>&#123;</div><div class="line">        img.src= evt.target.result;</div><div class="line">    &#125;</div><div class="line">    reader.readAsDataURL(oFile)</div><div class="line"></div><div class="line">    <span class="comment">// 或者用createObjectURL</span></div><div class="line">    img.src = <span class="built_in">window</span>.URL.createObjectURL(file)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>以上方法兼容Chrome、火狐、IE edge及IE10。IE10以下并不兼容，以下为兼容版本。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//下面用于图片上传预览功能</span></div><div class="line"><span class="keyword">var</span> imgInput = <span class="built_in">document</span>.getElementById(<span class="string">"imgInput"</span>)</div><div class="line"><span class="keyword">var</span> imgPreview = <span class="built_in">document</span>.getElementById(<span class="string">"preview"</span>)</div><div class="line">imgInput.onchange = <span class="function"><span class="keyword">function</span>(<span class="params">event</span>)</span>&#123;</div><div class="line">    <span class="keyword">if</span> (imgInput.files &amp;&amp; imgInput.files[<span class="number">0</span>]) &#123;</div><div class="line">        <span class="keyword">var</span> file = imgInput.files[<span class="number">0</span>]</div><div class="line">        <span class="comment">// createObjectURL 方法同步，内存占用少，网页关闭或使用revokeObjectURL时释放</span></div><div class="line">        imgPreview.src = <span class="built_in">window</span>.URL.createObjectURL(file)</div><div class="line">        <span class="comment">// readAsDataURL 方法异步，内存占用多，垃圾回收</span></div><div class="line">        <span class="comment">// var read = new FileReader();</span></div><div class="line">        <span class="comment">// read.onload = function(event) &#123;</span></div><div class="line">        <span class="comment">//  imgPreview.src = event.target.result</span></div><div class="line">        <span class="comment">// &#125;</span></div><div class="line">        <span class="comment">// read.readAsDataURL(file)</span></div><div class="line">    &#125; <span class="keyword">else</span> &#123;</div><div class="line">        <span class="comment">// IE10以下兼容</span></div><div class="line">        <span class="keyword">var</span> imgSrc = imgInput.value</div><div class="line">        <span class="keyword">var</span> localImag = <span class="built_in">document</span>.getElementById(<span class="string">"localImag"</span>);</div><div class="line">        <span class="keyword">try</span> &#123;</div><div class="line">            localImag.style.filter = <span class="string">"progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod=scale)"</span>;</div><div class="line">            localImag.filters.item(<span class="string">"DXImageTransform.Microsoft.AlphaImageLoader"</span>).src = imgSrc;</div><div class="line">        &#125; <span class="keyword">catch</span>(e) &#123;</div><div class="line">            alert(<span class="string">"您上传的图片格式不正确，请重新选择!"</span>);</div><div class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</div><div class="line">        &#125;</div><div class="line">        imgPreview.style.display = <span class="string">'none'</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>有一个问题：为什么不能直接将imgInput的value值赋给展示区域imgPreview的src属性呢？</p>
 
       
     </div>
@@ -413,9 +381,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/DOM/" rel="tag"># DOM</a>
-          
-            <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
+            <a href="/tags/技术/" rel="tag"># 技术</a>
           
         </div>
       
@@ -428,18 +394,14 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/05/15/opencv-pdb/" rel="next" title="opencv+VS配置问题">
-                <i class="fa fa-chevron-left"></i> opencv+VS配置问题
-              </a>
-            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/05/08/js-onload/" rel="prev" title="onload事件的傲娇处理">
-                onload事件的傲娇处理 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/11/16/http-status3xx/" rel="prev" title="301 302 303 307">
+                301 302 303 307 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -487,17 +449,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview sidebar-panel">
+      <section class="site-overview sidebar-panel sidebar-panel-active">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.jpg"
@@ -579,22 +532,6 @@
 
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#document-write-与-innerHTML"><span class="nav-number">1.</span> <span class="nav-text">document.write 与 innerHTML</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#重回图片库：结构样式分离升级版"><span class="nav-number">2.</span> <span class="nav-text">重回图片库：结构样式分离升级版</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#渐进增强与Ajax"><span class="nav-number">3.</span> <span class="nav-text">渐进增强与Ajax</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       
