@@ -270,6 +270,131 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/19/js-file-remoteImg/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="青菜">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="青菜不是葵花">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/12/19/js-file-remoteImg/" itemprop="url">
+                  上传图片并回显
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-19T09:46:57Z">
+                2017-12-19
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>功能：上传图片后，由服务器返回显示图片</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">form</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"file"</span> <span class="attr">name</span>=<span class="string">"image"</span> <span class="attr">id</span>=<span class="string">"image"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">name</span>=<span class="string">"submit"</span> <span class="attr">id</span>=<span class="string">"submit"</span> <span class="attr">value</span>=<span class="string">"submit"</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">progress</span> <span class="attr">id</span>=<span class="string">"uploadprogress"</span> <span class="attr">min</span>=<span class="string">"0"</span> <span class="attr">max</span>=<span class="string">"100"</span> <span class="attr">value</span>=<span class="string">"0"</span>&gt;</span>0<span class="tag">&lt;/<span class="name">progress</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"display"</span> <span class="attr">id</span>=<span class="string">"display"</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"./index.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.display</span> &#123;</div><div class="line">    <span class="attribute">width</span>: <span class="number">300px</span>;</div><div class="line">    <span class="attribute">height</span>: <span class="number">300px</span>;</div><div class="line">    <span class="attribute">border</span>: <span class="number">1px</span> solid <span class="number">#ccc</span>;</div><div class="line">    <span class="attribute">box-shadow</span>: <span class="number">0</span> <span class="number">0</span> <span class="number">2px</span> <span class="number">#ddd</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.display</span> <span class="selector-tag">img</span> &#123;</div><div class="line">    <span class="attribute">width</span>: <span class="number">100%</span>;</div><div class="line">    <span class="attribute">height</span>: <span class="number">100%</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> postURL = <span class="string">"http://10.103.241.137:8888/upload"</span>;</div><div class="line"></div><div class="line"><span class="built_in">document</span>.getElementById(<span class="string">"submit"</span>).onclick = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line"></div><div class="line">    <span class="keyword">var</span> data = <span class="keyword">new</span> FormData()</div><div class="line">    <span class="keyword">var</span> file = <span class="built_in">document</span>.getElementById(<span class="string">"image"</span>).files[<span class="number">0</span>]</div><div class="line">    data.append(<span class="string">"image"</span>, file)</div><div class="line"></div><div class="line">    <span class="keyword">var</span> xhr = <span class="keyword">new</span> XMLHttpRequest();</div><div class="line">    xhr.onreadystatechange = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        <span class="keyword">if</span> (xhr.readyState == <span class="number">4</span>) &#123;</div><div class="line">            <span class="keyword">if</span> (xhr.status &gt;= <span class="number">200</span> &amp;&amp; xhr.status &lt; <span class="number">300</span> || xhr.status == <span class="number">304</span>) &#123;</div><div class="line">                <span class="keyword">var</span> img = <span class="literal">null</span>;</div><div class="line">                <span class="keyword">if</span> (<span class="built_in">document</span>.getElementsByTagName(<span class="string">"img"</span>)[<span class="number">0</span>]) &#123;</div><div class="line">                    img = <span class="built_in">document</span>.getElementsByTagName(<span class="string">"img"</span>)[<span class="number">0</span>]</div><div class="line">                &#125; <span class="keyword">else</span> &#123;</div><div class="line">                    img = <span class="built_in">document</span>.createElement(<span class="string">"img"</span>)</div><div class="line">                    <span class="built_in">document</span>.getElementById(<span class="string">"display"</span>).appendChild(img)</div><div class="line">                &#125;</div><div class="line">                img.src = <span class="built_in">JSON</span>.parse(xhr.responseText).url</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    xhr.open(<span class="string">"Post"</span>, postURL, <span class="literal">true</span>)</div><div class="line">    xhr.send(data)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// nodejs</span></div><div class="line"><span class="keyword">var</span> http = <span class="built_in">require</span>(<span class="string">"http"</span>),</div><div class="line">    url = <span class="built_in">require</span>(<span class="string">"url"</span>),</div><div class="line">    formidable = <span class="built_in">require</span>(<span class="string">"formidable"</span>),</div><div class="line">    fs = <span class="built_in">require</span>(<span class="string">"fs"</span>);</div><div class="line"></div><div class="line">http.createServer(<span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>)</span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">"request for url: "</span>+ req.url)</div><div class="line">    res.setHeader(<span class="string">'Access-Control-Allow-Origin'</span>, <span class="string">'*'</span>);</div><div class="line">    <span class="keyword">if</span> (url.parse(req.url).pathname == <span class="string">"/upload"</span>) &#123;</div><div class="line">        <span class="keyword">var</span> form = formidable.IncomingForm();</div><div class="line">        form.uploadDir = <span class="string">"../tmp"</span></div><div class="line">        form.keepExtensions = <span class="literal">true</span></div><div class="line">        form.parse(req,<span class="function"><span class="keyword">function</span>(<span class="params">err, fields, files</span>) </span>&#123;</div><div class="line">            <span class="keyword">if</span> (err) &#123;</div><div class="line">                <span class="built_in">console</span>.log(err)</div><div class="line">            &#125; <span class="keyword">else</span> &#123;</div><div class="line">                <span class="built_in">console</span>.log(files)</div><div class="line">                fs.renameSync(files.image.path, <span class="string">'../tmp/'</span>+files.image.name)</div><div class="line">                res.writeHead(<span class="number">200</span>, &#123;<span class="string">"content-type"</span>: <span class="string">"application/json"</span>&#125;)</div><div class="line">                <span class="keyword">var</span> body = <span class="built_in">JSON</span>.stringify(&#123;</div><div class="line">                    <span class="attr">url</span>: <span class="string">"http://10.103.241.137:8888/image/"</span>+files.image.name</div><div class="line">                &#125;)</div><div class="line">                res.write(body)</div><div class="line">                res.end()</div><div class="line">            &#125;</div><div class="line">        &#125;)</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">if</span> (<span class="regexp">/^\/image\/.*/</span>.test(url.parse(req.url).pathname)) &#123;</div><div class="line">        <span class="keyword">var</span> imgPath = <span class="string">"../tmp/"</span> + url.parse(req.url).pathname.replace(<span class="string">"/image/"</span>,<span class="string">""</span>)</div><div class="line">        fs.readFile(imgPath, <span class="function"><span class="keyword">function</span>(<span class="params">err, file</span>) </span>&#123;</div><div class="line">            <span class="keyword">if</span> (err) &#123;</div><div class="line">                res.writeHead(<span class="number">500</span>, &#123;<span class="string">"content-type"</span>: <span class="string">"text/plain"</span>&#125;)</div><div class="line">                res.write(err + <span class="string">"\n"</span>)</div><div class="line">                res.end()</div><div class="line">            &#125; <span class="keyword">else</span> &#123;</div><div class="line">                res.writeHead(<span class="number">200</span>, &#123;<span class="string">"content-type"</span>: <span class="string">"image/jpeg"</span>&#125;)</div><div class="line">                res.write(file, <span class="string">"binary"</span>)</div><div class="line">                res.end()</div><div class="line">            &#125;</div><div class="line">        &#125;)</div><div class="line">    &#125;</div><div class="line">&#125;).listen(<span class="number">8888</span>)</div></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/18/js-file-image/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -356,7 +481,7 @@
 <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> fileInput = <span class="built_in">document</span>.getElementById(<span class="string">"image"</span>)</div><div class="line">fileInput.onchange = <span class="function"><span class="keyword">function</span>(<span class="params">event</span>)</span>&#123;</div><div class="line">    <span class="keyword">if</span> (<span class="keyword">this</span>.files.length == <span class="number">0</span>) &#123; <span class="keyword">return</span> &#125;</div><div class="line">    <span class="keyword">var</span> oFile = <span class="keyword">this</span>.files[<span class="number">0</span>]</div><div class="line">    <span class="keyword">if</span> (!<span class="regexp">/image.*/</span>.test(oFile.type)) &#123;<span class="keyword">return</span>&#125;</div><div class="line">    <span class="keyword">var</span> img = <span class="built_in">document</span>.createElement(<span class="string">"img"</span>)</div><div class="line">    <span class="built_in">document</span>.getElementById(<span class="string">"display"</span>).appendChild(img)</div><div class="line"></div><div class="line">    <span class="keyword">var</span> reader = <span class="keyword">new</span> FileReader();</div><div class="line">    reader.onload = <span class="function"><span class="keyword">function</span>(<span class="params">evt</span>) </span>&#123;</div><div class="line">        img.src= evt.target.result;</div><div class="line">    &#125;</div><div class="line">    reader.readAsDataURL(oFile)</div><div class="line"></div><div class="line">    <span class="comment">// 或者用createObjectURL</span></div><div class="line">    img.src = <span class="built_in">window</span>.URL.createObjectURL(file)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>以上方法兼容Chrome、火狐、IE edge及IE10。IE10以下并不兼容，以下为兼容版本。</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//下面用于图片上传预览功能</span></div><div class="line"><span class="keyword">var</span> imgInput = <span class="built_in">document</span>.getElementById(<span class="string">"imgInput"</span>)</div><div class="line"><span class="keyword">var</span> imgPreview = <span class="built_in">document</span>.getElementById(<span class="string">"preview"</span>)</div><div class="line">imgInput.onchange = <span class="function"><span class="keyword">function</span>(<span class="params">event</span>)</span>&#123;</div><div class="line">    <span class="keyword">if</span> (imgInput.files &amp;&amp; imgInput.files[<span class="number">0</span>]) &#123;</div><div class="line">        <span class="keyword">var</span> file = imgInput.files[<span class="number">0</span>]</div><div class="line">        <span class="comment">// createObjectURL 方法同步，内存占用少，网页关闭或使用revokeObjectURL时释放</span></div><div class="line">        imgPreview.src = <span class="built_in">window</span>.URL.createObjectURL(file)</div><div class="line">        <span class="comment">// readAsDataURL 方法异步，内存占用多，垃圾回收</span></div><div class="line">        <span class="comment">// var read = new FileReader();</span></div><div class="line">        <span class="comment">// read.onload = function(event) &#123;</span></div><div class="line">        <span class="comment">//  imgPreview.src = event.target.result</span></div><div class="line">        <span class="comment">// &#125;</span></div><div class="line">        <span class="comment">// read.readAsDataURL(file)</span></div><div class="line">    &#125; <span class="keyword">else</span> &#123;</div><div class="line">        <span class="comment">// IE10以下兼容</span></div><div class="line">        <span class="keyword">var</span> imgSrc = imgInput.value</div><div class="line">        <span class="keyword">var</span> localImag = <span class="built_in">document</span>.getElementById(<span class="string">"localImag"</span>);</div><div class="line">        <span class="keyword">try</span> &#123;</div><div class="line">            localImag.style.filter = <span class="string">"progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod=scale)"</span>;</div><div class="line">            localImag.filters.item(<span class="string">"DXImageTransform.Microsoft.AlphaImageLoader"</span>).src = imgSrc;</div><div class="line">        &#125; <span class="keyword">catch</span>(e) &#123;</div><div class="line">            alert(<span class="string">"您上传的图片格式不正确，请重新选择!"</span>);</div><div class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</div><div class="line">        &#125;</div><div class="line">        imgPreview.style.display = <span class="string">'none'</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>有一个问题：为什么不能直接将imgInput的value值赋给展示区域imgPreview的src属性呢？</p>
+<p>有一个问题：为什么不能直接将imgInput的value值赋给展示区域imgPreview的src属性呢？<br>答：当我们通过input上传图片时，因为浏览器的沙箱机制，将可能包含敏感信息的真实图片路径给隐藏了起来，例如用”c:/fakepath/a.png”代替原路径，因此此时inputd的value值并不能正确连接到图片文件。而通过IE的滤镜、FileReader、Blob都可以获取图片的真实路径，只是实现方法不一样。</p>
 
           
         
@@ -1680,250 +1805,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/17/express-greeni/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="青菜">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="青菜不是葵花">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/07/17/express-greeni/" itemprop="url">
-                  Web应用初体验——登录登出验证系统
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-17T15:43:14Z">
-                2017-07-17
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/技术/" itemprop="url" rel="index">
-                    <span itemprop="name">技术</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>本系统所用技术包括：jade模板（加强的html），bootstrap（css样式集），express（Web应用框架），js，nodejs，mysql，token验证等。</p>
-<p>GitHub地址：<a href="https://github.com/qingywen/DEMO/tree/master/Greeni" target="_blank" rel="external">https://github.com/qingywen/DEMO/tree/master/Greeni</a></p>
-<p>基本功能如下：</p>
-<ol>
-<li>初次登录该系统首页可浏览公共页面并进行注册。</li>
-<li>成为注册用户后可登录个人中心，关闭浏览器仍保持一天之内可随时登陆。</li>
-<li>登录后可注销，此后则只能浏览公共页面。</li>
-<li>登录一天后或者注销后，若访问个人中心则自动引导到登录页面。</li>
-</ol>
-<h2 id="step1"><a href="#step1" class="headerlink" title="step1"></a>step1</h2><p>先写前端界面，包括index.html(公共页面)，login.html(登录页面)，signup.html(注册页面)，my.html(个人中心)，这里用到了bootstrap的示例页面signin，carousel和dashboard的页面结构和样式。</p>
-<p>也许会有人跟我一样刚开始接触bootstrap并不知从何用起，以下做个简短说明：bootstrap是一个css样式集，用的好可以为你的项目锦上添花，用不好反倒累赘，因此还需好好琢磨。了解bootstrap的菜鸟教程可以浏览<a href="http://www.runoob.com/bootstrap/bootstrap-tutorial.html" target="_blank" rel="external">菜鸟教程</a>。实际上，bootstrap3的<a href="http://v3.bootcss.com/" target="_blank" rel="external">中文官网</a>已经讲解的非常详尽。不过仍建议先阅读菜鸟教程进行热身。</p>
-<p>页面js主要功能为表单提交，提交前先进行简单的验证，再序列化表单，接着用ajax提交到服务器，最后关闭表单的默认提交功能。</p>
-<h2 id="step2"><a href="#step2" class="headerlink" title="step2"></a>step2</h2><p>前端界面搭建好后，我们来新建一个数据库，数据库表中只有一个users表，结构如下：</p>
-<table>
-<thead>
-<tr>
-<th>Field</th>
-<th>Type</th>
-<th>Null</th>
-<th>Key</th>
-<th>Default</th>
-<th>Extra</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>P_Id</td>
-<td>int(11)</td>
-<td>No</td>
-<td>PRI</td>
-<td>NULL</td>
-<td>auto_increment</td>
-</tr>
-<tr>
-<td>email</td>
-<td>varchar(255)</td>
-<td>NO</td>
-<td>UNI</td>
-<td>NULL</td>
-<td></td>
-</tr>
-<tr>
-<td>password</td>
-<td>varchar(255)</td>
-<td>NO</td>
-<td></td>
-<td>NULL</td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<p>现在表数据如下：</p>
-<table>
-<thead>
-<tr>
-<th>P_Id</th>
-<th>email</th>
-<th>password</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>1</td>
-<td>1195259521@qq.com</td>
-<td>123</td>
-</tr>
-<tr>
-<td>9</td>
-<td>qingywen@gmail.com</td>
-<td>123</td>
-</tr>
-<tr>
-<td>12</td>
-<td>wenwu@gmai.com</td>
-<td>123</td>
-</tr>
-<tr>
-<td>14</td>
-<td>123@qq.com</td>
-<td>123</td>
-</tr>
-</tbody>
-</table>
-<p>数据库导出文件为greeni.sql，在本地数据库中将sql文件导入新建数据库greeni即可。</p>
-<h2 id="step3"><a href="#step3" class="headerlink" title="step3"></a>step3</h2><p>前端、数据库搭建好后，我们即可开始整个应用的系统搭建，通过后台逻辑将前端和数据库连接起来。</p>
-<p>这里在一个新文件夹中用<code>express</code>进行项目初始化，当然前提是本地用npm安装了express。接着在package.json中加入db、ejs、jsonwebtoken三个模块，然后用<code>cnpm install</code>进行安装。</p>
-<p>这里我们需要将app.js文件中默认的渲染引擎从jade改为ejs。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// view engine setup</span></div><div class="line">app.set(<span class="string">'views'</span>, path.join(__dirname, <span class="string">'views'</span>));</div><div class="line">pp.engine(<span class="string">'.html'</span>, <span class="built_in">require</span>(<span class="string">'ejs'</span>).__express);</div><div class="line">app.set(<span class="string">'view engine'</span>, <span class="string">'jade'</span>);</div></pre></td></tr></table></figure></p>
-<p>修改routes文件夹下index.js、my.js的路由定向和事件句柄，此时要用到数据库，因此新建db文件夹，在db目录下新建DBConfig.js和SQL.js，分别用作数据库的连接配置文件和SQL语句模块。</p>
-<p>在写登录验证的逻辑时，我们根据用户邮箱用jsonwebtoken随机生成一个令牌，并发送用户，用户在cookie中保存此令牌，在下次请求私有资源时则不必明文发送密码，而是在发送请求时随着cookie自动将令牌发送给服务器，服务器收到令牌验证成功后则返回用户所请求的资源，否则令牌有可能被恶意更改，则拒绝请求。</p>
-<p>此时系统搭建完毕，我么可以用<code>npm start</code>来启动项目，注意bin文件夹写的端口号为8000，因此访问地址为：127.0.0.1:8000。</p>
-<h2 id="step4"><a href="#step4" class="headerlink" title="step4"></a>step4</h2><p>最后我们想做一个小优化，如果每个用户登录到个人中心的页面都一样的话，这个个人中心恐怕是个假个人中心，因此我们需要对不同的用户请求返回一样的页面结构但是不同的用户信息。为求简易，这里我们只对每个用户返回各自的email，并添加到页面上。</p>
-<p>因为页面首先需要在服务器上渲染才能返回给客户端，最经济的思路当然是在服务端渲染出不同的页面再返回给客户端。而html并没有变量的功能，因此我们使用jade模板（现更名为pug，但jade模块仍有效）来代替html。jade是一个非常高效的模板引擎，提供了变量、for循环等功能。有一个非常好的<a href="https://naltatis.github.io/jade-syntax-docs/" target="_blank" rel="external">jade语法学习网站</a>安利给大家。这里我们需要将之前的html转为jade，手动改编太麻烦，用这个<a href="http://www.html2jade.org/" target="_blank" rel="external">html2jade</a>的网站来转化吧。</p>
-<p>得到jade格式的前端文件，我们修改app.js的模板引擎设置，将ejs引擎改回默认的jade引擎：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// view engine setup</span></div><div class="line">app.set(<span class="string">'views'</span>, path.join(__dirname, <span class="string">'views'</span>));</div><div class="line">app.set(<span class="string">'view engine'</span>, <span class="string">'jade'</span>);</div></pre></td></tr></table></figure></p>
-<p>在routes下的my.js中，返回个人中心页面同时，返回用户的email：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">res.render(<span class="string">'my'</span>,&#123;<span class="attr">email</span>: decoded.email&#125;);</div></pre></td></tr></table></figure></p>
-<p>修改views文件夹下my.jade文件中的标题，用来接收服务器传送来的email变量：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">a.navbar-brand(href=&apos;#&apos;) #&#123;email&#125;</div></pre></td></tr></table></figure></p>
-<p>此后大功告成，每个用户登陆后访问个人中心的页面，其页面标题都是自己用来注册的email，因此此个人中心成立。</p>
-<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><ol>
-<li>表单序列化方法<code>serialize()</code>，阻止表单默认提交方式<code>preventDefault()</code>，以及设置cookie的<code>CookieUtil.set()</code>均来自《JS高级程序设计》。</li>
-<li>登录后通过令牌验证来避免密码泄露用到<code>jwt.sign() jwt.verify()</code>，建议细看jsonwebtoken包下的README.md，讲解很详细。</li>
-<li>README.md文件是个好东西，许多网上的经验贴都没有官方使用文档讲的简单易懂。sublime有许多markdown实时阅览插件很方便，此<a href="http://www.jianshu.com/p/335b7d1be39e" target="_blank" rel="external">博主</a>有分享。</li>
-<li>源代码是最后版本，因此前文所述中间过程可能不能详尽体现，但可以按照上述方式进行此系统的构建。这篇记录不是使用说明，仅作一个Guide，有问题Google和百度并行解决。若解决不了可联系数据库中P_Id为1的邮箱，我会尽快为你回复。</li>
-</ol>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1973,7 +1854,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">26</span>
+                <span class="site-state-item-count">27</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>

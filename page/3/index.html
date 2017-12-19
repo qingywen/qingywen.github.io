@@ -270,6 +270,158 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/08/js-dom-principle/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="青菜">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="青菜不是葵花">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/05/08/js-dom-principle/" itemprop="url">
+                  DOM 编程四大原则
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-07T16:41:26Z">
+                2017-05-07
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/技术/" itemprop="url" rel="index">
+                    <span itemprop="name">技术</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>《Javascript DOM 编程艺术》中第五章有四个概念讲述的非常好，分别是平稳退化、分离JavaScript、向后兼容、性能考虑。这也是很多野生前端选手可能忽视的地方。</p>
+<h3 id="平稳退化"><a href="#平稳退化" class="headerlink" title="平稳退化"></a>平稳退化</h3><p>让访问者在他们的浏览器不支持JavaScript的情况下仍能顺利的访问你的网站，这就是平稳退化的思想。<br>例如，当我们要实现一个弹窗效果可能会写到：<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"javascript:popUp('http://www.example.com/')"</span>&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span></div><div class="line">// <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span> <span class="attr">onclick</span>=<span class="string">"popUp('http://www.example.com/')"</span>&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span></div></pre></td></tr></table></figure><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">popUp</span>(<span class="params">objectUrl</span>) </span>&#123;</div><div class="line">	<span class="built_in">window</span>.open(objectUrl,<span class="string">'popup'</span>,<span class="string">'width=320,height=480'</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>但有两种情况使得网页的可访问性降低：一是当用户禁用JavaScript时,点击无效；二是大多数搜索机器人无法理解js代码，它们在搜索引擎上的排名就会降低。因此平稳退化的目的就是当Javascript无效时，仍能让我们的网站显示给用户有效的信息。这里实现平稳退化的方式如下：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"http://www.example.com/"</span> <span class="attr">onclick</span>=<span class="string">"popUp(this.href);return false;"</span>&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span></div></pre></td></tr></table></figure><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">popUp</span>(<span class="params">objectUrl</span>) </span>&#123;</div><div class="line">	<span class="built_in">window</span>.open(objectUrl,<span class="string">'popup'</span>,<span class="string">'width=320,height=480'</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h3 id="分离JavaScript"><a href="#分离JavaScript" class="headerlink" title="分离JavaScript"></a>分离JavaScript</h3><p>在HTML文档里使用onclick之类的属性较容易出现问题，这里我们将使用类似CSS的挂钩机制来将HTML和JavaScript分离开来，这样将使得我们的网页健壮得多。实现方式如下：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"http://www.example.com/"</span> <span class="attr">class</span>=<span class="string">"popup"</span>&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span></div></pre></td></tr></table></figure><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">window</span>.onload = prepareLinks;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">prepareLinks</span>(<span class="params"></span>) </span>&#123;</div><div class="line">	<span class="keyword">var</span> links = <span class="built_in">document</span>.getElementsByTagName(<span class="string">'a'</span>);</div><div class="line">	<span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; links.length; i++) &#123;</div><div class="line">		<span class="keyword">if</span> (links[i].className == <span class="string">"popup"</span>) &#123;</div><div class="line">			links[i].onclick = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">				popUp(<span class="keyword">this</span>.href);</div><div class="line">				<span class="keyword">return</span> <span class="literal">false</span>;</div><div class="line">			&#125;</div><div class="line">		&#125;			</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">popUp</span>(<span class="params">objectUrl</span>) </span>&#123;</div><div class="line">	<span class="built_in">window</span>.open(objectUrl, <span class="string">"pop"</span>, <span class="string">"width=320,height=480"</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>这里的基本思想是给每个需要弹窗的a标签加上样式popup，然后再循环遍历文档里所有具有该样式的a标签，并给其添加上相应的点击事件，并返回false，使得href值无效。这里有一点要注意的是需要在文档加载完成之后再遍历所有的a标签，因此需要用到window的onload方法。这样的实现思想就比较好的演示了如何将HTML和JavaScript分离开来。</p>
+<h3 id="向后兼容"><a href="#向后兼容" class="headerlink" title="向后兼容"></a>向后兼容</h3><p>考虑到部分老的浏览器对JavaScript支持的并不是很好，我们需要用到对象检测的方法来给我们的浏览器设置门槛。一般的思想是：<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> (condition) &#123; statements &#125; </div><div class="line">&lt;!-- 例如 --&gt;</div><div class="line"><span class="keyword">if</span> (<span class="built_in">document</span>.getElementById(<span class="string">'pop'</span>)) &#123;</div><div class="line">	<span class="keyword">var</span> pop = <span class="built_in">document</span>.getElementById(<span class="string">'pop'</span>);</div><div class="line">	...</div><div class="line">&#125;</div></pre></td></tr></table></figure>也就是说如果浏览器支持某行为，我们则使用某段代码，但这样会给我们的方法添加很多碍于阅读的花括号。因此我们不妨换一个思维：<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> (!condition) &#123; <span class="keyword">return</span> <span class="literal">false</span>; &#125; </div></pre></td></tr></table></figure>即在使用的方法前进行否定判断：“你若不支持我，我就离开”。这是一种更为简洁的思路，在使用相应的api之前进行对象检测，检测过关则进行下一步，不过关则离开。其代码也更加清晰。</p>
+<h3 id="性能考虑"><a href="#性能考虑" class="headerlink" title="性能考虑"></a>性能考虑</h3><p>基本的性能提升策略有以下几种：</p>
+<ul>
+<li>尽量减少访问DOM和尽量减少标记</li>
+<li>合并和放置脚本</li>
+<li>压缩脚本</li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/05/html-src-href/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1254,7 +1406,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">26</span>
+                <span class="site-state-item-count">27</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
